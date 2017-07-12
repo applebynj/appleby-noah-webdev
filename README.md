@@ -1,8 +1,11 @@
-# web-dev-template
+# appleby-noah-webdev
 
-1. git clone https://github.com/jannunzi/web-dev-template.git
-1. cd web-dev-template
-1. npm install
-1. mongod
-1. node server.js
-1. browse to localhost:3000
+This repo will house my course assignments for CS4550 Web Development.
+
+I'm an undergraduate Computer Science and Design major at Northeastern University, and am currently also working part-time as a full-stack developer at PowerAdvocate. I have past experience as a front-end developer working with a client through Scout, a student run organization through Northeastern's College of Arts, Media Design.
+
+## Links (live hosted on Heroku):
+1. Main Home Page: https://appleby-noah-webdev.herokuapp.com/
+2. Project Home Page: https://appleby-noah-webdev.herokuapp.com/project/index.html
+3. Assignment Home Page: https://appleby-noah-webdev.herokuapp.com/assignment/
+
