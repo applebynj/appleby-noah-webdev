@@ -10,7 +10,30 @@ body {
 */
 
 .navbar-default {
-    //color
+    background-color: #337ab7;
+}
+
+.navbar-default .navbar-brand span {
+    padding-right: 20px;
+}
+
+//make this only to this case
+@media (min-width: 0px) {
+    .navbar-right {
+        float: right !important;
+        margin-right: -15px;
+    }
+}
+
+
+.navbar-default .navbar-brand {
+    color: white;
+    font-weight: bold;
+}
+
+.navbar-default .navbar-nav li a {
+    color: white;
+    font-weight: bold;
 }
 
 .active .glyphicon {
