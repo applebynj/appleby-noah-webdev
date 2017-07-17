@@ -13,7 +13,7 @@ body {
     //color
 }
 
-a span.glyphicon {
+.active .glyphicon {
     color: white;
 }
 
