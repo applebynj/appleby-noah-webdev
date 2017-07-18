@@ -6,6 +6,12 @@ body {
     padding: 60px 0px;
 }
 
+img {
+    width: auto;
+    max-width: 100%;
+    max-height: 300px;
+}
+
 /*add .nja??
 */
 
@@ -13,7 +19,7 @@ body {
     background-color: #337ab7;
 }
 
-.navbar-default .navbar-brand span {
+.navbar-default .navbar-right span {
     padding-right: 20px;
 }
 
@@ -57,4 +63,13 @@ body {
         top: 60px;
         bottom: 60px;
     }
+}
+
+.widget {
+    padding: 10px 0px;
+}
+
+.widgetMenu {
+    background-color: #b6c9da;
+    float: right;
 }
