@@ -3,7 +3,7 @@ input, textarea, .dropdown {
 }
 
 body {
-    padding-top: 60px;
+    padding: 60px 0px;
 }
 
 /*add .nja??
@@ -43,7 +43,7 @@ body {
 .nja-split-view-left {
     position: absolute;
     top: 60px;
-    bottom: 0px;
+    bottom: 60px;
     z-index: 1;
     overflow-y: scroll;
 }
@@ -55,6 +55,6 @@ body {
         right: 0px;
         overflow-y: scroll;
         top: 60px;
-        bottom: 0px;
+        bottom: 60px;
     }
 }
