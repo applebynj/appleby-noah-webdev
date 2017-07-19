@@ -12,6 +12,13 @@ img {
     max-height: 300px;
 }
 
+.youtube {
+    width: 560px;
+    height: 315px;
+    max-width: 100%;
+}
+
+
 /*add .nja??
 */
 
@@ -20,7 +27,7 @@ img {
 }
 
 .navbar-header .navbar-right span {
-    padding-right: 20px;
+    padding-right: 5px;
 }
 
 .navbar-brand .glyphicon-chevron-left {
@@ -34,7 +41,6 @@ img {
         margin-right: -15px;
     }
 }
-
 
 .navbar-default .navbar-brand {
     color: white;
@@ -52,10 +58,12 @@ img {
 
 .nja-split-view-left {
     position: absolute;
-    top: 60px;
-    bottom: 60px;
+    top: 50px;
+    bottom: 50px;
+    padding-top: 10px;
     z-index: 1;
     overflow-y: scroll;
+    border-right: 1px solid #CCCCCC;
 }
 
 @media(min-width: 1200px) {
@@ -75,12 +83,26 @@ img {
 
 .widgetMenu {
     background-color: #b6c9da;
+    position: absolute;
+    right:10px;
     z-index: 5;
-    float: right;
+}
+
+.widgetContent {
+    position: relative;
+    z-index: 1;
 }
 
 @media (min-width: 768px) {
     .navbar-header {
         float: inherit;
     }
+}
+
+.nja-split-view-left,.chooser .list-group-item {
+    border: none;
+}
+
+.chooser a.list-group-item {
+    color: #337ab7;
 }
