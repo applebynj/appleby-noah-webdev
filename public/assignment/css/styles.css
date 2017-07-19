@@ -25,23 +25,23 @@ a:hover {
  * Non-Collapsing Nav
  */
 
-nja-no-collapse .navbar-header .navbar-right span {
+.nja-no-collapse .navbar-header .navbar-right span {
     padding-right: 10px;
 }
 
-nja-no-collapse .navbar-brand .glyphicon-chevron-left {
+.nja-no-collapse .navbar-brand .glyphicon-chevron-left {
     padding-right: 20px;
 }
 
 @media (min-width: 0px) {
-    nja-no-collapse .navbar-right {
+    .nja-no-collapse .navbar-right {
         float: right !important;
         margin-right: -15px;
     }
 }
 
 @media (min-width: 768px) {
-    nja-no-collapse .navbar-header {
+    .nja-no-collapse .navbar-header {
         float: inherit;
     }
 }
@@ -119,13 +119,13 @@ nja-no-collapse .navbar-brand .glyphicon-chevron-left {
     z-index: 1;
 }
 
-widget img {
+.widget img {
     width: auto;
     max-width: 100%;
     max-height: 300px;
 }
 
-widget .youtube {
+.widget .youtube {
     width: 560px;
     height: 315px;
     max-width: 100%;
