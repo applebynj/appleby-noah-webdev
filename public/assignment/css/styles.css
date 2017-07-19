@@ -26,8 +26,12 @@ img {
     background-color: #337ab7;
 }
 
+.navbar-default .nja-split-nav {
+    padding-left: 0;
+}
+
 .navbar-header .navbar-right span {
-    padding-right: 5px;
+    padding-right: 10px;
 }
 
 .navbar-brand .glyphicon-chevron-left {
