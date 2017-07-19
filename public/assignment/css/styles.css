@@ -34,6 +34,15 @@ img {
     padding-right: 20px;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    background-color: transparent;
+    color: white;
+}
 /*make apply this only to this case */
 @media (min-width: 0px) {
     .navbar-right {
@@ -42,7 +51,7 @@ img {
     }
 }
 
-.navbar-default .navbar-brand {
+.navbar-default .navbar-brand, .navbar-default a {
     color: white;
     font-weight: bold;
 }
