@@ -1,26 +1,17 @@
-input, textarea, .dropdown {
-    margin-bottom: 5px;
-}
-
+/*
+ * General
+ */
 body {
     padding: 60px 0px;
 }
 
-img {
-    width: auto;
-    max-width: 100%;
-    max-height: 300px;
+input, textarea, .dropdown {
+    margin-bottom: 5px;
 }
 
-.youtube {
-    width: 560px;
-    height: 315px;
-    max-width: 100%;
+a:hover {
+    text-decoration: none;
 }
-
-
-/*add .nja??
-*/
 
 .navbar-default {
     background-color: #337ab7;
@@ -30,29 +21,35 @@ img {
     padding-left: 0;
 }
 
-.navbar-header .navbar-right span {
+/*
+ * Non-Collapsing Nav
+ */
+
+nja-no-collapse .navbar-header .navbar-right span {
     padding-right: 10px;
 }
 
-.navbar-brand .glyphicon-chevron-left {
+nja-no-collapse .navbar-brand .glyphicon-chevron-left {
     padding-right: 20px;
 }
 
-a:hover {
-    text-decoration: none;
+@media (min-width: 0px) {
+    nja-no-collapse .navbar-right {
+        float: right !important;
+        margin-right: -15px;
+    }
+}
+
+@media (min-width: 768px) {
+    nja-no-collapse .navbar-header {
+        float: inherit;
+    }
 }
 
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
     background-color: transparent;
     color: white;
-}
-/*make apply this only to this case */
-@media (min-width: 0px) {
-    .navbar-right {
-        float: right !important;
-        margin-right: -15px;
-    }
 }
 
 .navbar-default .navbar-brand, .navbar-default a {
@@ -68,6 +65,10 @@ a:hover {
 .active .glyphicon {
     color: white;
 }
+
+/*
+ * Split View
+ */
 
 .nja-split-view-left {
     position: absolute;
@@ -90,6 +91,18 @@ a:hover {
     }
 }
 
+.nja-split-view-left,.chooser .list-group-item {
+    border: none;
+}
+
+.chooser a.list-group-item {
+    color: #337ab7;
+}
+
+/*
+ * Widget related
+ */
+
 .widget {
     padding: 5px 0px;
 }
@@ -106,16 +119,14 @@ a:hover {
     z-index: 1;
 }
 
-@media (min-width: 768px) {
-    .navbar-header {
-        float: inherit;
-    }
+widget img {
+    width: auto;
+    max-width: 100%;
+    max-height: 300px;
 }
 
-.nja-split-view-left,.chooser .list-group-item {
-    border: none;
-}
-
-.chooser a.list-group-item {
-    color: #337ab7;
+widget .youtube {
+    width: 560px;
+    height: 315px;
+    max-width: 100%;
 }
