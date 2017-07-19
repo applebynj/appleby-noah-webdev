@@ -34,8 +34,8 @@ a:hover {
 }
 
 @media (min-width: 0px) {
-    .nja-no-collapse .navbar-right {
-        float: right !important;
+    .navbar-right {
+        float: right;
         margin-right: -15px;
     }
 }
