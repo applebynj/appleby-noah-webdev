@@ -19,7 +19,11 @@ img {
     background-color: #337ab7;
 }
 
-.navbar-default .navbar-right span {
+.navbar-header .navbar-right span {
+    padding-right: 20px;
+}
+
+.navbar-brand .glyphicon-chevron-left {
     padding-right: 20px;
 }
 
@@ -66,10 +70,17 @@ img {
 }
 
 .widget {
-    padding: 10px 0px;
+    padding: 5px 0px;
 }
 
 .widgetMenu {
     background-color: #b6c9da;
+    z-index: 5;
     float: right;
+}
+
+@media (min-width: 768px) {
+    .navbar-header {
+        float: inherit;
+    }
 }
