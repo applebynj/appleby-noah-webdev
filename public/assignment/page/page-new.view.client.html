@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>New Website</title>
+    <title>New Page</title>
     <link href="../../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="../css/styles.css" rel="stylesheet"/>
 </head>
@@ -14,14 +14,14 @@
                 <div class="container-fluid row">
                     <div class="navbar-header">
                         <div class="navbar-brand">
-                            <a href="website-list.html">
+                           <a href="page-list.html">
                                 <span class="glyphicon glyphicon-chevron-left"></span>
-                            </a>
-                            Websites
+                           </a>
+                            Pages
                         </div>
                         <a class="navbar-brand navbar-right"
-                           href="website-new.html">
-                            <span class="glyphicon glyphicon-plus"></span>
+                           href="page-new.html">
+                            <span class="pull-right glyphicon glyphicon-plus"></span>
                         </a>
                     </div>
                 </div>
@@ -32,13 +32,13 @@
                     <div class="navbar-header">
                         <div class="navbar-brand">
                             <a class="hidden-lg"
-                                    href="website-list.html">
+                               href="page-list.html">
                                 <span class="glyphicon glyphicon-chevron-left"></span>
                             </a>
-                            New Website
+                            New Page
                         </div>
                         <a class="navbar-brand navbar-right"
-                           href="website-list.html">
+                           href="page-list.html">
                             <span class="glyphicon glyphicon-ok"></span>
                         </a>
                     </div>
@@ -48,18 +48,19 @@
     </nav>
 
     <div class="container-fluid">
+
         <div class="row">
             <div class="col-xs-3 visible-lg nja-split-view-left">
                 <ul class="list-group">
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-xs-10">
-                                <a href="../page/page-list.html">
+                                <a href="../widget/widget-list.html">
                                     Wikipedia
                                 </a>
                             </div>
                             <div class="col-xs-2">
-                                <a href="website-edit.html">
+                                <a href="page-edit.html">
                                     <span class="pull-right glyphicon glyphicon-cog"></span>
                                 </a>
                             </div>
@@ -68,12 +69,12 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-xs-10">
-                                <a href="../page/page-list.html">
+                                <a href="../widget/widget-list.html">
                                     Facebook
                                 </a>
                             </div>
                             <div class="col-xs-2">
-                                <a href="website-edit.html">
+                                <a href="page-edit.html">
                                     <span class="pull-right glyphicon glyphicon-cog"></span>
                                 </a>
                             </div>
@@ -82,12 +83,12 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-xs-10">
-                                <a href="../page/page-list.html">
+                                <a href="../widget/widget-list.html">
                                     Reddit
                                 </a>
                             </div>
                             <div class="col-xs-2">
-                                <a href="website-edit.html">
+                                <a href="page-edit.html">
                                     <span class="pull-right glyphicon glyphicon-cog"></span>
                                 </a>
                             </div>
@@ -96,12 +97,12 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-xs-10">
-                                <a href="../page/page-list.html">
+                                <a href="../widget/widget-list.html">
                                     Amazon
                                 </a>
                             </div>
                             <div class="col-xs-2">
-                                <a href="website-edit.html">
+                                <a href="page-edit.html">
                                     <span class="pull-right glyphicon glyphicon-cog"></span>
                                 </a>
                             </div>
@@ -113,17 +114,17 @@
             <div class="col-xs-12 col-lg-9 nja-split-view-right c">
                 <label for="name">Name</label>
                 <input name="name"
-                       placeholder="Facebook"
+                       placeholder="Page Name"
                        type="text"
                        class="form-control"
                        id="name"/>
 
-                <label for="description">Description</label>
-                <textarea name="description"
-                          rows="5"
-                          placeholder="Largest country in the world."
-                          class="form-control"
-                          id="description"></textarea>
+                <label for="title">Title</label>
+                <input name="title"
+                       placeholder="Page Title"
+                       type="text"
+                       class="form-control"
+                       id="title"/>
             </div>
         </div>
     </div>
@@ -132,7 +133,7 @@
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
             <a class="navbar-brand navbar-right"
-               href="../user/templates/profile.html">
+               href="../user/templates/profile.view.client.html">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
         </div>

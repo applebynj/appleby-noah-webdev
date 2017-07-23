@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Edit Website</title>
+    <title>New Website</title>
     <link href="../../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="../css/styles.css" rel="stylesheet"/>
 </head>
@@ -32,10 +32,10 @@
                     <div class="navbar-header">
                         <div class="navbar-brand">
                             <a class="hidden-lg"
-                               href="website-list.html">
+                                    href="website-list.html">
                                 <span class="glyphicon glyphicon-chevron-left"></span>
                             </a>
-                            Edit Website
+                            New Website
                         </div>
                         <a class="navbar-brand navbar-right"
                            href="website-list.html">
@@ -109,10 +109,11 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-xs-12 col-lg-9 nja-split-view-right">
+
+            <div class="col-xs-12 col-lg-9 nja-split-view-right c">
                 <label for="name">Name</label>
                 <input name="name"
-                       value="Facebook"
+                       placeholder="Facebook"
                        type="text"
                        class="form-control"
                        id="name"/>
@@ -120,12 +121,9 @@
                 <label for="description">Description</label>
                 <textarea name="description"
                           rows="5"
+                          placeholder="Largest country in the world."
                           class="form-control"
-                          id="description">Facebook is defined as an online social networking website where people can create profiles, share information such as photos and quotes about themselves, and respond or link to the information posted by others.</textarea>
-
-                <a class="btn btn-default btn-danger btn-block"
-                   href="website-list.html"
-                   role="button">Delete</a>
+                          id="description"></textarea>
             </div>
         </div>
     </div>
@@ -134,7 +132,7 @@
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
             <a class="navbar-brand navbar-right"
-               href="../user/templates/profile.html">
+               href="../user/templates/profile.view.client.html">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
         </div>
