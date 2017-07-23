@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Edit Widget</title>
-    <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="css/styles.css" rel="stylesheet"/>
-    <script src="../vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link href="../../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../css/styles.css" rel="stylesheet"/>
+    <script src="../../vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -29,8 +29,8 @@
     <div class="container-fluid">
         <label for="name">Name</label>
         <input name="name"
-               type="text"
                value="Home"
+               type="text"
                class="form-control"
                id="name"/>
 
@@ -44,7 +44,7 @@
         <label for="url">URL</label>
         <input name="url"
                type="text"
-               placeholder="https://www.youtube.com/watch?something"
+               placeholder="https://www.blog.com"
                class="form-control"
                id="url"/>
 
@@ -55,6 +55,16 @@
                class="form-control"
                id="width"/>
 
+        <label for="fileUpload">Upload</label>
+        <input name="fileUpload"
+               type="file"
+               class="form-control"
+               id="fileUpload"/>
+
+        <a class="btn btn-default btn-primary btn-block"
+           href="#"
+           role="button">Upload Image</a>
+
         <a class="btn btn-default btn-danger btn-block"
            href="widget-list.html"
            role="button">Delete</a>
@@ -64,7 +74,7 @@
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
             <a class="navbar-brand navbar-right"
-               href="profile.html">
+               href="../user/templates/profile.html">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
         </div>

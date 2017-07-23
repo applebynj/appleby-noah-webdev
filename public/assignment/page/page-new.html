@@ -2,22 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Edit Page</title>
-    <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="css/styles.css" rel="stylesheet"/>
+    <title>New Page</title>
+    <link href="../../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../css/styles.css" rel="stylesheet"/>
 </head>
 <body>
 
     <nav class="nja-no-collapse navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
-        <div class="nja-split-nav col-xs-3 visible-lg">
+            <div class="nja-split-nav col-xs-3 visible-lg">
                 <div class="container-fluid row">
                     <div class="navbar-header">
                         <div class="navbar-brand">
                            <a href="page-list.html">
-                               <span class="glyphicon glyphicon-chevron-left"></span>
-                               Pages
+                                <span class="glyphicon glyphicon-chevron-left"></span>
                            </a>
+                            Pages
                         </div>
                         <a class="navbar-brand navbar-right"
                            href="page-new.html">
@@ -26,15 +26,16 @@
                     </div>
                 </div>
             </div>
+
             <div class="nja-split-nav col-xs-12 col-lg-9">
-                <div class="container-fluid row">
+                <div class="container-fluid">
                     <div class="navbar-header">
                         <div class="navbar-brand">
                             <a class="hidden-lg"
                                href="page-list.html">
                                 <span class="glyphicon glyphicon-chevron-left"></span>
                             </a>
-                            Edit Page
+                            New Page
                         </div>
                         <a class="navbar-brand navbar-right"
                            href="page-list.html">
@@ -54,8 +55,8 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-xs-10">
-                                <a href="widget-list.html">
-                                    Home
+                                <a href="../widget/widget-list.html">
+                                    Wikipedia
                                 </a>
                             </div>
                             <div class="col-xs-2">
@@ -68,8 +69,8 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-xs-10">
-                                <a href="widget-list.html">
-                                    About
+                                <a href="../widget/widget-list.html">
+                                    Facebook
                                 </a>
                             </div>
                             <div class="col-xs-2">
@@ -82,8 +83,8 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-xs-10">
-                                <a href="widget-list.html">
-                                    Blog
+                                <a href="../widget/widget-list.html">
+                                    Reddit
                                 </a>
                             </div>
                             <div class="col-xs-2">
@@ -96,8 +97,8 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-xs-10">
-                                <a href="widget-list.html">
-                                    Contact Us
+                                <a href="../widget/widget-list.html">
+                                    Amazon
                                 </a>
                             </div>
                             <div class="col-xs-2">
@@ -109,10 +110,11 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-xs-12 col-lg-9 nja-split-view-right">
+
+            <div class="col-xs-12 col-lg-9 nja-split-view-right c">
                 <label for="name">Name</label>
                 <input name="name"
-                       value="Home"
+                       placeholder="Page Name"
                        type="text"
                        class="form-control"
                        id="name"/>
@@ -123,12 +125,7 @@
                        type="text"
                        class="form-control"
                        id="title"/>
-
-                <a class="btn btn-default btn-danger  btn-block"
-                   href="page-list.html"
-                   role="button">Delete</a>
             </div>
-
         </div>
     </div>
 
@@ -136,7 +133,7 @@
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
             <a class="navbar-brand navbar-right"
-               href="profile.html">
+               href="../user/templates/profile.html">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
         </div>
