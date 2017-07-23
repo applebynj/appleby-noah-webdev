@@ -13,10 +13,34 @@
         ];
 
         var api = {
+            'findUserByUsername' : findUserByUsername,
             'findUserByUsernameAndPassword' : findUserByUsernameAndPassword,
-            'findUserById' : findUserById
+            'findUserById' : findUserById,
+            'registerUser' : registerUser,
+            'updateUser' : updateUser
         };
         return api;
+
+        function updateUser(userId, user) {
+            /*TODO: finish this logic*/
+            for(var u in users) {
+                if(users[u]._id === userId) {
+                    users[u] = user;
+                    return
+                }
+            }
+            return null;
+        };
+
+        function findUserByUsername(username) {
+            for (var u in users) {
+                var _user = users[u];
+                if (username === _user.username) {
+                    return _user;
+                }
+            }
+            return null;
+        };
 
         function findUserByUsernameAndPassword(username, password) {
             for (var u in users) {
@@ -36,6 +60,13 @@
                 }
             }
             return null;
+        };
+
+        function registerUser(user) {
+            <!-- TODO: further validation -->
+            user._id = (new Date()).getTime() +"";
+            users.push(user);
+            return user;
         };
     }
 })();
