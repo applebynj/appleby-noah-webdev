@@ -1,67 +1,72 @@
-<nav class="nja-no-collapse navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <div class="navbar-brand">
-                Profile
+<div class="nja-profile" ng-controller="profileController">
+    <nav class="nja-no-collapse navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="navbar-brand">
+                    Profile
+                </div>
+                <a class="navbar-brand navbar-right"
+                   href="profile.html">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </a>
             </div>
+        </div>
+    </nav>
+
+    <div class="nja-no-collapse container-fluid">
+        <label for="firstName">First Name</label>
+        <input name="firstName"
+               ng-model="user.firstName"
+               placeholder="Noah"
+               type="text"
+               class="form-control"
+               id="firstName"/>
+
+        <label for="lastName">Last Name</label>
+        <input name="lastName"
+               ng-model="user.lastName"
+               placeholder="Appleby"
+               type="text"
+               class="form-control"
+               id="lastName"/>
+
+        <label for="username">Username</label>
+        <input name="username"
+               ng-model="user.username"
+               readonly
+               value="noah"
+               class="form-control"
+               id="username"/>
+
+        <label for="email">Email</label>
+        <input name="email"
+               type="email"
+               placeholder="noah@appleby.com"
+               class="form-control"
+               id="email"/>
+
+        <label for="dob">Date of Birth</label>
+        <input name="dob"
+               type="date"
+               class="form-control"
+               id="dob"/>
+
+        <a class="btn btn-default btn-primary btn-block"
+           href="website-list.html"
+           role="button">Websites</a>
+
+        <a class="btn btn-default btn-danger btn-block"
+           href="login.html"
+           role="button">Logout</a>
+    </div>
+
+    <!-- Start Footer (same across all pages) -->
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
             <a class="navbar-brand navbar-right"
                href="profile.html">
-                <span class="glyphicon glyphicon-ok"></span>
+                <span class="glyphicon glyphicon-user"></span>
             </a>
         </div>
-    </div>
-</nav>
-
-<div class="nja-no-collapse container-fluid">
-    <label for="firstName">First Name</label>
-    <input name="firstName"
-           placeholder="Noah"
-           type="text"
-           class="form-control"
-           id="firstName"/>
-
-    <label for="lastName">Last Name</label>
-    <input name="lastName"
-           placeholder="Appleby"
-           type="text"
-           class="form-control"
-           id="lastName"/>
-
-    <label for="username">Username</label>
-    <input name="username"
-           readonly
-           value="noah"
-           class="form-control"
-           id="username"/>
-
-    <label for="email">Email</label>
-    <input name="email"
-           type="email"
-           placeholder="noah@appleby.com"
-           class="form-control"
-           id="email"/>
-
-    <label for="dob">Date of Birth</label>
-    <input name="dob"
-           type="date"
-           class="form-control"
-           id="dob"/>
-
-    <a class="btn btn-default btn-primary btn-block"
-       href="website-list.html"
-       role="button">Websites</a>
-
-    <a class="btn btn-default btn-danger btn-block"
-       href="login.html"
-       role="button">Logout</a>
+    </nav>
 </div>
-
-<!-- Start Footer (same across all pages) -->
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <a class="navbar-brand navbar-right"
-           href="profile.html">
-            <span class="glyphicon glyphicon-user"></span>
-        </a>
-    </div>
-</nav>
