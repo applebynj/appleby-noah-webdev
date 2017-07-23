@@ -1,45 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="css/styles.css" rel="stylesheet"/>
-</head>
-<body>
+<div class="container-fluid">
+    <div ng-controller="loginController">
 
-    <div class="container-fluid">
-        <div ng-controller="loginController">
+        <h2>Login</h2>
 
-            <h2>Login</h2>
-
-            <div ng-show="welcomeUser" class="alert alert-info">
-                Welcome back {{welcomeUser.username}}
-            </div>
-
-            <input name="username"
-                   placeholder="username"
-                   ng-model="user.username"
-                   type="text"
-                   class="form-control"
-                   id="username"/>
-
-            <input name="password"
-                   placeholder="password"
-                   ng-model="user.password"
-                   type="password"
-                   class="form-control"
-                   id="password"/>
-
-            <a class="btn btn-default btn-primary btn-block"
-               ng-click="login(user)"
-               role="button">Login</a>
-
-            <a class="btn btn-default btn-success btn-block"
-               href="register.html"
-               role="button">Register</a>
+        <div ng-show="welcomeUser" class="alert alert-info">
+            Welcome back {{welcomeUser.username}}
         </div>
-    </div>
 
-</body>
-</html>
+        <input name="username"
+               placeholder="username"
+               ng-model="user.username"
+               type="text"
+               class="form-control"
+               id="username"/>
+
+        <input name="password"
+               placeholder="password"
+               ng-model="user.password"
+               type="password"
+               class="form-control"
+               id="password"/>
+
+        <a class="btn btn-default btn-primary btn-block"
+           ng-click="login(user)"
+           role="button">Login</a>
+
+        <a class="btn btn-default btn-success btn-block"
+           href="register.html"
+           role="button">Register</a>
+    </div>
+</div>

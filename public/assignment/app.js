@@ -7,7 +7,14 @@ app.config(configuration);
 function configuration($routeProvider) {
     $routeProvider
         .when("/login", {
-            templateUrl: "login.html"})
+            templateUrl: "login.html"
+        })
+        .when("/register", {
+            templateUrl: "register.html"
+        })
+        .when("/profile", {
+            templateUrl: "profile.html"
+        })
 }
 
 function loginController($scope) {

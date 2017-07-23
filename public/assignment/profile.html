@@ -1,81 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Profile</title>
-    <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="css/styles.css" rel="stylesheet"/>
-</head>
-<body>
+ <div class="nja-no-collapse container-fluid">
+    <label for="firstName">First Name</label>
+    <input name="firstName"
+           placeholder="Noah"
+           type="text"
+           class="form-control"
+           id="firstName"/>
 
-    <nav class="nja-no-collapse navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <div class="navbar-brand">
-                    Profile
-                </div>
-                <a class="navbar-brand navbar-right"
-                   href="profile.html">
-                    <span class="glyphicon glyphicon-ok"></span>
-                </a>
-            </div>
-        </div>
-    </nav>
+    <label for="lastName">Last Name</label>
+    <input name="lastName"
+           placeholder="Appleby"
+           type="text"
+           class="form-control"
+           id="lastName"/>
 
-    <div class="nja-no-collapse container-fluid">
-        <label for="firstName">First Name</label>
-        <input name="firstName"
-               placeholder="Noah"
-               type="text"
-               class="form-control"
-               id="firstName"/>
+    <label for="username">Username</label>
+    <input name="username"
+           readonly
+           value="noah"
+           class="form-control"
+           id="username"/>
 
-        <label for="lastName">Last Name</label>
-        <input name="lastName"
-               placeholder="Appleby"
-               type="text"
-               class="form-control"
-               id="lastName"/>
+    <label for="email">Email</label>
+    <input name="email"
+           type="email"
+           placeholder="noah@appleby.com"
+           class="form-control"
+           id="email"/>
 
-        <label for="username">Username</label>
-        <input name="username"
-               readonly
-               value="noah"
-               class="form-control"
-               id="username"/>
+    <label for="dob">Date of Birth</label>
+    <input name="dob"
+           type="date"
+           class="form-control"
+           id="dob"/>
 
-        <label for="email">Email</label>
-        <input name="email"
-               type="email"
-               placeholder="noah@appleby.com"
-               class="form-control"
-               id="email"/>
+    <a class="btn btn-default btn-primary btn-block"
+       href="website-list.html"
+       role="button">Websites</a>
 
-        <label for="dob">Date of Birth</label>
-        <input name="dob"
-               type="date"
-               class="form-control"
-               id="dob"/>
+    <a class="btn btn-default btn-danger btn-block"
+       href="login.html"
+       role="button">Logout</a>
+</div>
 
-        <a class="btn btn-default btn-primary btn-block"
-           href="website-list.html"
-           role="button">Websites</a>
-
-        <a class="btn btn-default btn-danger btn-block"
-           href="login.html"
-           role="button">Logout</a>
+<!-- Start Footer (same across all pages) -->
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <a class="navbar-brand navbar-right"
+           href="profile.html">
+            <span class="glyphicon glyphicon-user"></span>
+        </a>
     </div>
-
-    <!-- Start Footer (same across all pages) -->
-    <nav class="navbar navbar-default navbar-fixed-bottom">
-        <div class="container-fluid">
-            <a class="navbar-brand navbar-right"
-               href="profile.html">
-                <span class="glyphicon glyphicon-user"></span>
-            </a>
-        </div>
-    </nav>
-    <!-- End Footer -->
-
-</body>
-</html>
+</nav>
+<!-- End Footer -->
