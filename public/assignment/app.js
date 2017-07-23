@@ -1,6 +1,14 @@
-var app = angular.module("WamApp", []);
+var app = angular.module("WamApp", ["ngRoute"]);
 
 app.controller("loginController", loginController);
+
+app.config(configuration);
+
+function configuration($routeProvider) {
+    $routeProvider
+        .when("/login", {
+            templateUrl: "login.html"})
+}
 
 function loginController($scope) {
 
