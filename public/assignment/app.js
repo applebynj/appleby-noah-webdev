@@ -17,7 +17,7 @@ function configuration($routeProvider) {
         })
 }
 
-function loginController($scope) {
+function loginController($scope, $location) {
 
     var users = [
         {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder"  },
@@ -31,8 +31,9 @@ function loginController($scope) {
             var _user = users[u];
             if(user.username === _user.username &&
             user.password === _user.password) {
-                $scope.welcomeUser = _user;
+                $location.url("profile");
             }
         }
+        $scope.errorMessage = "User not found";
     }
 }

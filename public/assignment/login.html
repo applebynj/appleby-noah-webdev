@@ -7,6 +7,10 @@
             Welcome back {{welcomeUser.username}}
         </div>
 
+        <div ng-show="errorMessage" class="alert alert-danger">
+            {{errorMessage}}
+        </div>
+
         <input name="username"
                placeholder="username"
                ng-model="user.username"
