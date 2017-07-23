@@ -3,12 +3,21 @@
         .module("WamApp")
         .controller("loginController", loginController)
 
-    function loginController($scope, $location, userService) {
+    function loginController($location, userService) {
+        var model = this;
 
-        $scope.login = function (user) {
+        model.login = login;
+
+        function init() { }
+        init();
+
+        function login(user) {
+            if(!user) {
+                model.errorMessage = "User not found";
+            }
             user = userService.findUserByUsernameAndPassword(user.username, user.password);
             if(user === null) {
-                $scope.errorMessage = "User not found";
+                model.errorMessage = "User not found";
             } else {
                 $location.url("profile/" + user._id);
             }

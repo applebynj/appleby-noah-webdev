@@ -1,4 +1,4 @@
-<div class="nja-profile" ng-controller="profileController">
+<div class="nja-profile">
     <nav class="nja-no-collapse navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -16,7 +16,7 @@
     <div class="nja-no-collapse container-fluid">
         <label for="firstName">First Name</label>
         <input name="firstName"
-               ng-model="user.firstName"
+               ng-model="model.user.firstName"
                placeholder="Noah"
                type="text"
                class="form-control"
@@ -24,7 +24,7 @@
 
         <label for="lastName">Last Name</label>
         <input name="lastName"
-               ng-model="user.lastName"
+               ng-model="model.user.lastName"
                placeholder="Appleby"
                type="text"
                class="form-control"
@@ -32,7 +32,7 @@
 
         <label for="username">Username</label>
         <input name="username"
-               ng-model="user.username"
+               ng-model="model.user.username"
                readonly
                value="noah"
                class="form-control"
