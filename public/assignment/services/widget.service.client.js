@@ -17,12 +17,6 @@
             { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
         ];
 
-        1. createWidget(pageId, widget)  - adds the  widget  parameter instance to the local  widgets  array. The new widget's  pageId  is set to the  pageId  parameter
-        2. findWidgetsByPageId(pageId)  - retrieves the widgets in local  widgets  array whose  pageId  matches the parameter  pageId
-        3. findWidgetById(widgetId)  - retrieves the widget in local  widgets  array whose  _id  matches the  widgetId parameter
-        4. updateWidget(widgetId, widget)  - updates the widget in local  widgets  array whose  _id  matches the widgetId  parameter
-        5. deleteWidget(widgetId)  - removes the widget from local  widgets  array whose  _id  matches the  widgetId parameter
-
         this.createWidget = createWidget;
         this.findWidgetsByPageId = findWidgetsByPageId;
         this.findWidgetById = findWidgetById;
