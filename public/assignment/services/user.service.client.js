@@ -13,24 +13,30 @@
         ];
 
         var api = {
-            'findUserByUsername' : findUserByUsername,
-            'findUserByUsernameAndPassword' : findUserByUsernameAndPassword,
+            'createUser' : createUser,
             'findUserById' : findUserById,
-            'registerUser' : registerUser,
-            'updateUser' : updateUser
+            'findUserByUsername' : findUserByUsername,
+            'findUserByCredentials' : findUserByCredentials,
+            'updateUser' : updateUser,
+            'deleteUser' : deleteUser
         };
         return api;
 
-        function updateUser(userId, user) {
-            /*TODO: finish this logic*/
+        function createUser(user) {
+            /* TODO: further validation */
+            user._id = (new Date()).getTime() +"";
+            users.push(user);
+            return user;
+        }
+
+        function findUserById(userId) {
             for(var u in users) {
                 if(users[u]._id === userId) {
-                    users[u] = user;
-                    return
+                    return users[u];
                 }
             }
             return null;
-        };
+        }
 
         function findUserByUsername(username) {
             for (var u in users) {
@@ -40,9 +46,9 @@
                 }
             }
             return null;
-        };
+        }
 
-        function findUserByUsernameAndPassword(username, password) {
+        function findUserByCredentials(username, password) {
             for (var u in users) {
                 var _user = users[u];
                 if (username === _user.username &&
@@ -51,22 +57,22 @@
                 }
             }
             return null;
-        };
+        }
 
-        function findUserById(userId) {
+        function updateUser(userId, user) {
+            /* TODO: finish this logic */
             for(var u in users) {
                 if(users[u]._id === userId) {
-                    return users[u];
+                    users[u] = user;
+                    return
                 }
             }
             return null;
-        };
+        }
 
-        function registerUser(user) {
-            <!-- TODO: further validation -->
-            user._id = (new Date()).getTime() +"";
-            users.push(user);
-            return user;
-        };
+        function deleteUser(userId) {
+            /* TODO: Implement */
+            return null;
+        }
     }
 })();
