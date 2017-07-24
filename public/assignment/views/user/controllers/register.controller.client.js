@@ -1,9 +1,9 @@
 (function() {
     angular
         .module("WamApp")
-        .controller("registerController", registerController);
+        .controller("RegisterController", RegisterController);
 
-    function registerController(userService, $location) {
+    function RegisterController(userService, $location) {
         var model = this;
 
         model.registerUser = registerUser;

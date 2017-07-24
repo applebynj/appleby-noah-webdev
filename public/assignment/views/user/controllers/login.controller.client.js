@@ -1,9 +1,9 @@
 (function() {
     angular
         .module("WamApp")
-        .controller("loginController", loginController)
+        .controller("LoginController", LoginController)
 
-    function loginController($location, userService) {
+    function LoginController($location, userService) {
         var model = this;
 
         model.login = login;

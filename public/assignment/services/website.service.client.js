@@ -1,9 +1,9 @@
 (function() {
     angular
         .module("WamApp")
-        .service("websiteService", websiteService);
+        .service("WebsiteService", WebsiteService);
 
-    function websiteService() {
+    function WebsiteService() {
 
         var websites = [
             { "_id": "123", "name": "Facebook", "developerId": "456", "description": "Lorem" },

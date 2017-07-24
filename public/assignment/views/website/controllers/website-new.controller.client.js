@@ -1,9 +1,9 @@
 (function() {
     angular
         .module("WamApp")
-        .controller("websiteNewController", websiteNewController);
+        .controller("NewWebsiteController", NewWebsiteController);
 
-    function websiteListController($routeParams, websiteService) {
+    function NewWebsiteController($routeParams, websiteService) {
         var model = this;
 
         model.userId = $routeParams.userId;

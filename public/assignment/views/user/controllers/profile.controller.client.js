@@ -1,9 +1,9 @@
 (function() {
     angular
         .module("WamApp")
-        .controller("profileController", profileController)
+        .controller("ProfileController", ProfileController)
 
-    function profileController($routeParams, userService) {
+    function ProfileController($routeParams, userService) {
         var model = this;
         var userId = $routeParams["userId"];
 

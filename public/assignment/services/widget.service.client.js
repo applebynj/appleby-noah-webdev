@@ -1,9 +1,9 @@
 (function() {
     angular
         .module("WamApp")
-        .service("widgetService", widgetService);
+        .service("WidgetService", WidgetService);
 
-    function widgetService() {
+    function WidgetService() {
 
         var websites = [
             { "_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO"},
