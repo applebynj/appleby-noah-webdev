@@ -1,7 +1,7 @@
 (function() {
     angular
         .module("WamApp")
-        .controller("websiteListController", websiteListController);
+        .controller("websiteNewController", websiteNewController);
 
     function websiteListController($routeParams, websiteService) {
         var model = this;
