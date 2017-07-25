@@ -21,7 +21,10 @@
         return api;
 
         function createPage(websiteId, page) {
-            /* TODO */
+            page.websiteId = websiteId;
+            page._id = (new Date()).getTime() +"";
+            pages.push(page);
+            return page;
         }
 
         function findPagesByWebsiteId(websiteId) {
@@ -43,12 +46,23 @@
             return null;
         }
 
-        function updatePage(pageid, page) {
-            /* TODO */
+        function updatePage(pageId, page) {
+            for(var p in pages) {
+                if(pages[p]._id === pageId) {
+                    pages[p] = page;
+                    return pages[p];
+                }
+            }
+            return null;
         }
 
         function deletePage(pageid) {
-            /* TODO */
+            for(var p in pages) {
+                if(pages[p]._id === pageid) {
+                    pages.splice(p, 1);
+                }
+            }
+            return null;
         }
     }
 })();

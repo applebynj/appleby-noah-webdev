@@ -4,13 +4,15 @@
             <div class="container-fluid row">
                 <div class="navbar-header">
                     <div class="navbar-brand">
-                       <a href="page-list.view.client.html">
-                           <span class="glyphicon glyphicon-chevron-left"></span>
+                        <a  href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page"
+                            role="button">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
                            Pages
                        </a>
                     </div>
                     <a class="navbar-brand navbar-right"
-                       href="page-new.view.client.html">
+                       href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/new"
+                       role="button">
                         <span class="pull-right glyphicon glyphicon-plus"></span>
                     </a>
                 </div>
@@ -21,13 +23,15 @@
                 <div class="navbar-header">
                     <div class="navbar-brand">
                         <a class="hidden-lg"
-                           href="page-list.view.client.html">
+                           href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page"
+                           role="button">
                             <span class="glyphicon glyphicon-chevron-left"></span>
                         </a>
                         Edit Page
                     </div>
                     <a class="navbar-brand navbar-right"
-                       href="page-list.view.client.html">
+                       ng-click="model.updatePage(model.page)"
+                       role="button">
                         <span class="glyphicon glyphicon-ok"></span>
                     </a>
                 </div>
@@ -117,7 +121,7 @@
                    id="title"/>
 
             <a class="btn btn-default btn-danger  btn-block"
-               href="page-list.view.client.html"
+               ng-click="model.deletePage()"
                role="button">Delete</a>
         </div>
 
@@ -128,7 +132,7 @@
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <a class="navbar-brand navbar-right"
-           href="../../user/templates/profile.view.client.html">
+           href="#!/user/{{model.userId}}">
             <span class="glyphicon glyphicon-user"></span>
         </a>
     </div>
