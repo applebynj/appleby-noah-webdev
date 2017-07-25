@@ -22,7 +22,10 @@
         this.deleteWebsite = deleteWebsite;
 
         function createWebsite(userId, website) {
-            /* TODO */
+            website.developerId = userId;
+            website._id = (new Date()).getTime() +"";
+            websites.push(website);
+            return website;
         }
 
         function findWebsitesByUser(userId) {
@@ -46,11 +49,22 @@
         }
 
         function updateWebsite(websiteId, website) {
-            /* TODO */
+            for(var w in websites) {
+                if(websites[w]._id === websiteId) {
+                    websites[w] = website;
+                    return websites[w];
+                }
+            }
+            return null;
         }
 
         function deleteWebsite(websiteId) {
-            /* TODO */
+            for(var w in websites) {
+                if(websites[w]._id === websiteId) {
+                    websites.splice(w, 1);
+                }
+            }
+            return null;
         }
     }
 })();

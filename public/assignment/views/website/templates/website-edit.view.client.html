@@ -4,13 +4,13 @@
             <div class="container-fluid row">
                 <div class="navbar-header">
                     <div class="navbar-brand">
-                        <a href="website-list.view.client.html">
+                        <a href="#!/user/{{model.userId}}/website">
                             <span class="glyphicon glyphicon-chevron-left"></span>
                         </a>
                         Websites
                     </div>
                     <a class="navbar-brand navbar-right"
-                       href="website-new.view.client.html">
+                       href= href="#!/user/{{model.userId}}/website/new">
                         <span class="glyphicon glyphicon-plus"></span>
                     </a>
                 </div>
@@ -22,13 +22,14 @@
                 <div class="navbar-header">
                     <div class="navbar-brand">
                         <a class="hidden-lg"
-                           href="website-list.view.client.html">
+                           href="#!/user/{{model.userId}}/website">
                             <span class="glyphicon glyphicon-chevron-left"></span>
                         </a>
                         Edit Website
                     </div>
                     <a class="navbar-brand navbar-right"
-                       href="website-list.view.client.html">
+                       ng-click="model.updateWebsite(model.website)"
+                       role="button">
                         <span class="glyphicon glyphicon-ok"></span>
                     </a>
                 </div>
@@ -116,7 +117,7 @@
                       id="description">Facebook is defined as an online social networking website where people can create profiles, share information such as photos and quotes about themselves, and respond or link to the information posted by others.</textarea>
 
             <a class="btn btn-default btn-danger btn-block"
-               href="website-list.view.client.html"
+               ng-click="model.deleteWebsite()"
                role="button">Delete</a>
         </div>
     </div>
@@ -126,7 +127,7 @@
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <a class="navbar-brand navbar-right"
-           href="../../user/templates/profile.view.client.html">
+           href="#!/user/{{model.userId}}">
             <span class="glyphicon glyphicon-user"></span>
         </a>
     </div>

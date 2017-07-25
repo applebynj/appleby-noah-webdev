@@ -5,6 +5,7 @@
 
     function WebsiteListController($routeParams, WebsiteService) {
         var model = this;
+
         model.userId = $routeParams["uid"];
 
         function init() {
