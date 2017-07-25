@@ -3,13 +3,13 @@
         .module("WamApp")
         .controller("EditWebsiteController", EditWebsiteController);
 
-    function EditWebsiteController($routeParams, websiteService) {
+    function EditWebsiteController($routeParams, WebsiteService) {
         var model = this;
-
-        model.userId = $routeParams.userId;
+        model.userId = $routeParams["uid"];
+        model.websiteId = $routeParams["wid"];
 
         function init() {
-            model.websites = websiteService.findWebsitesForUser(model.userId);
+            model.website = WebsiteService.findWebsiteById(model.websiteId);
         }
         init();
     }

@@ -3,12 +3,13 @@
         .module("WamApp")
         .controller("EditPageController", EditPageController);
 
-    function EditPageController($routeParams, pageService) {
+    function EditPageController($routeParams, PageService) {
         var model = this;
 
-        model.userId = $routeParams.userId;
+        model.pageId = $routeParams["pid"];
 
         function init() {
+            model.page = PageService.findPageById(model.pageId);
         }
         init();
     }

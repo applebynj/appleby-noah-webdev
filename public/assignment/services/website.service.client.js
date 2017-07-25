@@ -37,7 +37,12 @@
         }
 
         function findWebsiteById(websiteId) {
-            /* TODO */
+            for(var w in websites) {
+                if(websites[w]._id === websiteId) {
+                    return websites[w];
+                }
+            }
+            return null;
         }
 
         function updateWebsite(websiteId, website) {

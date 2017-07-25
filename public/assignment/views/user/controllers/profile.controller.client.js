@@ -3,20 +3,20 @@
         .module("WamApp")
         .controller("ProfileController", ProfileController)
 
-    function ProfileController($routeParams, userService) {
+    function ProfileController($routeParams, UserService) {
         var model = this;
-        var userId = $routeParams["userId"];
+        model.userId = $routeParams["uid"];
 
         model.updateUser = updateUser;
         model.unregister = unregister;
 
         function init() {
-            model.user = userService.findUserById(userId);
+            model.user = UserService.findUserById(model.userId);
         }
         init();
 
         function updateUser(user) {
-            userService.updateUser(user._id, user);
+            UserService.updateUser(user._id, user);
         }
 
         function unregister() {
