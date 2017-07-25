@@ -42,7 +42,7 @@
                     return websites[w];
                 }
             }
-            return null;
+
         }
 
         function updateWebsite(websiteId, website) {
