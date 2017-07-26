@@ -27,6 +27,7 @@
             widget.pageId = pageId;
             widget._id = (new Date()).getTime() +"";
             widgets.push(widget);
+            console.log(widgets);
             return widget;
         }
 
@@ -53,6 +54,7 @@
             for(var w in widgets) {
                 if(widgets[w]._id === widgetId) {
                     widgets[w] = widget;
+                    console.log(widgets[w]);
                     return widgets[w];
                 }
             }

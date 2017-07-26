@@ -31,7 +31,7 @@
         }
 
         function getWidgetIncludeUrl(widgetType) {
-            return 'views/widget/templates/widget-' + widgetType + '.component.client.html'
+            return 'views/widget/templates/widget-' + widgetType + '.component.client.html';
         }
     }
 })();

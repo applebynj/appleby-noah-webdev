@@ -9,7 +9,7 @@
                 Edit Widget
             </div>
             <a class="navbar-brand navbar-right"
-               ng-click="updateWidget(model.widgetId, model.widget)"
+               ng-click="model.updateWidget(model.widget)"
                role="button">
                 <span class="glyphicon glyphicon-ok"></span>
             </a>
@@ -18,17 +18,7 @@
 </nav>
 
 <div class="container-fluid">
-    <div ng-switch="model.widget.widgetType">
-        <div ng-switch-when="HEADING">
-            <div ng-include src="'views/widget/templates/editors/widget-heading-edit.component.client.html'"></div>
-        </div>
-        <div ng-switch-when="IMAGE">
-            <div ng-include src="'views/widget/templates/editors/widget-image-edit.view.client.html'"></div>
-        </div>
-        <div ng-switch-when="YOUTUBE">
-            <div ng-include src="'views/widget/templates/editors/widget-youtube-edit.view.client.html'"></div>
-        </div>
-    </div>
+    <ng-include src="model.getWidgetIncludeUrl(model.widget.widgetType)"></ng-include>
 </div>
 
 <!-- Start Footer (same across all pages) -->
