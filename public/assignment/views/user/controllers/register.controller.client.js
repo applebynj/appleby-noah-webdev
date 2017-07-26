@@ -16,8 +16,12 @@
         function registerUser(user) {
             var _user = UserService.findUserByUsername(user.username);
             if(!_user) {
-                user = UserService.createUser(user);
-                $location.url("/user/"+user._id);
+                if(user.password === user.password2) {
+                    user = UserService.createUser(user);
+                    $location.url("/user/" + user._id);
+                } else {
+                    model.error = "Passwords do not match";
+                }
             }
             else {
                 model.error = "User already exists";
