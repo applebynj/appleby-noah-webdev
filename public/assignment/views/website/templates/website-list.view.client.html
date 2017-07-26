@@ -1,0 +1,35 @@
+<nav class="nja-no-collapse navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <div class="navbar-brand">
+                <a href="#!/user/{{model.userId}}"
+                   role="button">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                Websites
+            </div>
+            <a class="navbar-brand navbar-right"
+               href="#!/user/{{model.userId}}/website/new"
+               role="button">
+                <span class="pull-right glyphicon glyphicon-plus"></span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+    <div ng-include="'views/website/templates/website-list.component.client.html'"></div>
+
+</div>
+
+<!-- Start Footer (same across all pages) -->
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <a class="navbar-brand navbar-right"
+           href="#!/user/{{model.userId}}">
+            <span class="glyphicon glyphicon-user"></span>
+        </a>
+    </div>
+</nav>
+<!-- End Footer -->

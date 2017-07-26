@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Profile</title>
-    <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="css/styles.css" rel="stylesheet"/>
-</head>
-<body>
-
+<div class="nja-profile">
     <nav class="nja-no-collapse navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -15,7 +6,8 @@
                     Profile
                 </div>
                 <a class="navbar-brand navbar-right"
-                   href="profile.html">
+                   ng-click="model.updateUser(model.user)"
+                   role="button">
                     <span class="glyphicon glyphicon-ok"></span>
                 </a>
             </div>
@@ -25,6 +17,7 @@
     <div class="nja-no-collapse container-fluid">
         <label for="firstName">First Name</label>
         <input name="firstName"
+               ng-model="model.user.firstName"
                placeholder="Noah"
                type="text"
                class="form-control"
@@ -32,6 +25,7 @@
 
         <label for="lastName">Last Name</label>
         <input name="lastName"
+               ng-model="model.user.lastName"
                placeholder="Appleby"
                type="text"
                class="form-control"
@@ -39,6 +33,7 @@
 
         <label for="username">Username</label>
         <input name="username"
+               ng-model="model.user.username"
                readonly
                value="noah"
                class="form-control"
@@ -46,6 +41,7 @@
 
         <label for="email">Email</label>
         <input name="email"
+               ng-model="model.user.email"
                type="email"
                placeholder="noah@appleby.com"
                class="form-control"
@@ -58,11 +54,11 @@
                id="dob"/>
 
         <a class="btn btn-default btn-primary btn-block"
-           href="website-list.html"
+           href="#!/user/{{model.user._id}}/website"
            role="button">Websites</a>
 
         <a class="btn btn-default btn-danger btn-block"
-           href="login.html"
+           href="#!/login"
            role="button">Logout</a>
     </div>
 
@@ -70,12 +66,9 @@
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
             <a class="navbar-brand navbar-right"
-               href="profile.html">
+               href="#!/profile">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
         </div>
     </nav>
-    <!-- End Footer -->
-
-</body>
-</html>
+</div>

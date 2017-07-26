@@ -1,36 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="css/styles.css" rel="stylesheet"/>
-</head>
-<body>
+<div class="container-fluid">
+    <div>
 
-    <div class="container-fluid">
         <h2>Login</h2>
+
+<!--        <div ng-show="model.user" class="alert alert-info">
+            Welcome back {{model.user.username}}
+        </div>
+-->
+
+        <div ng-show="model.errorMessage" class="alert alert-danger">
+            {{model.errorMessage}}
+        </div>
 
         <input name="username"
                placeholder="username"
+               ng-model="model.user.username"
                type="text"
                class="form-control"
                id="username"/>
 
         <input name="password"
                placeholder="password"
+               ng-model="model.user.password"
                type="password"
                class="form-control"
                id="password"/>
 
         <a class="btn btn-default btn-primary btn-block"
-           href="profile.html"
+           ng-click="model.login(model.user)"
            role="button">Login</a>
 
         <a class="btn btn-default btn-success btn-block"
-           href="register.html"
+           href="#!/register"
            role="button">Register</a>
     </div>
-
-</body>
-</html>
+</div>

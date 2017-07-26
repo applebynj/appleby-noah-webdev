@@ -1,0 +1,81 @@
+<nav class="nja-no-collapse navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="nja-split-nav col-xs-3 visible-lg">
+            <div class="container-fluid row">
+                <div class="navbar-header">
+                    <div class="navbar-brand">
+                        <a href="#!/user/{{model.userId}}/website"
+                           role="button">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        Websites
+                    </div>
+                    <a class="navbar-brand navbar-right"
+                       href="#!/user/{{model.userId}}/website/new">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="nja-split-nav col-xs-12 col-lg-9">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <div class="navbar-brand">
+                        <a class="hidden-lg"
+                           href="#!/user/{{model.userId}}/website"
+                           role="button">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        Edit Website
+                    </div>
+                    <a class="navbar-brand navbar-right"
+                       ng-click="updateWebsite(model.website)">
+                        <span class="glyphicon glyphicon-ok"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-3 visible-lg nja-split-view-left">
+
+            <div ng-include="'views/website/templates/website-list.sidebar.component.client.html'"></div>
+
+        </div>
+        <div class="col-xs-12 col-lg-9 nja-split-view-right">
+            <label for="name">Name</label>
+            <input name="name"
+                   ng-model="model.website.name"
+                   value="Facebook"
+                   type="text"
+                   class="form-control"
+                   id="name"/>
+
+            <label for="description">Description</label>
+            <textarea name="description"
+                      ng-model="model.website.description"
+                      rows="5"
+                      class="form-control"
+                      id="description">Facebook is defined as an online social networking website where people can create profiles, share information such as photos and quotes about themselves, and respond or link to the information posted by others.</textarea>
+
+            <a class="btn btn-default btn-danger btn-block"
+               ng-click="model.deleteWebsite()"
+               role="button">Delete</a>
+        </div>
+    </div>
+</div>
+
+<!-- Start Footer (same across all pages) -->
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <a class="navbar-brand navbar-right"
+           href="#!/user/{{model.userId}}">
+            <span class="glyphicon glyphicon-user"></span>
+        </a>
+    </div>
+</nav>
+<!-- End Footer -->

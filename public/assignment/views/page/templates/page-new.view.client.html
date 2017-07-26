@@ -1,0 +1,137 @@
+<nav class="nja-no-collapse navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="nja-split-nav col-xs-3 visible-lg">
+            <div class="container-fluid row">
+                <div class="navbar-header">
+                    <div class="navbar-brand">
+                        <a  href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page"
+                            role="button">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                       </a>
+                        Pages
+                    </div>
+                    <a class="navbar-brand navbar-right"
+                       href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/new"
+                       role="button">
+                        <span class="pull-right glyphicon glyphicon-plus"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="nja-split-nav col-xs-12 col-lg-9">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <div class="navbar-brand">
+                        <a class="hidden-lg"
+                           href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page"
+                           role="button">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        New Page
+                    </div>
+                    <a class="navbar-brand navbar-right"
+                       ng-click="model.createPage(model.page)"
+                       role="button">
+                        <span class="glyphicon glyphicon-ok"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-xs-3 visible-lg nja-split-view-left">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <a href="../../widget/templates/widget-list.view.client.html">
+                                Wikipedia
+                            </a>
+                        </div>
+                        <div class="col-xs-2">
+                            <a href="page-edit.view.client.html">
+                                <span class="pull-right glyphicon glyphicon-cog"></span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <a href="../../widget/templates/widget-list.view.client.html">
+                                Facebook
+                            </a>
+                        </div>
+                        <div class="col-xs-2">
+                            <a href="page-edit.view.client.html">
+                                <span class="pull-right glyphicon glyphicon-cog"></span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <a href="../../widget/templates/widget-list.view.client.html">
+                                Reddit
+                            </a>
+                        </div>
+                        <div class="col-xs-2">
+                            <a href="page-edit.view.client.html">
+                                <span class="pull-right glyphicon glyphicon-cog"></span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <a href="../../widget/templates/widget-list.view.client.html">
+                                Amazon
+                            </a>
+                        </div>
+                        <div class="col-xs-2">
+                            <a href="page-edit.view.client.html">
+                                <span class="pull-right glyphicon glyphicon-cog"></span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-xs-12 col-lg-9 nja-split-view-right c">
+            <label for="name">Name</label>
+            <input name="name"
+                   ng-model="model.page.name"
+                   placeholder="Page Name"
+                   type="text"
+                   class="form-control"
+                   id="name"/>
+
+            <label for="title">Title</label>
+            <input name="title"
+                   ng-model="model.page.title"
+                   placeholder="Page Title"
+                   type="text"
+                   class="form-control"
+                   id="title"/>
+        </div>
+    </div>
+</div>
+
+<!-- Start Footer (same across all pages) -->
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <a class="navbar-brand navbar-right"
+           href="#!/user/{{model.userId}}">
+            <span class="glyphicon glyphicon-user"></span>
+        </a>
+    </div>
+</nav>
+<!-- End Footer -->
