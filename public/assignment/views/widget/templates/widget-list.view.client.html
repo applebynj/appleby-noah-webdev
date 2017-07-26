@@ -22,15 +22,7 @@
 
     <div ng-repeat="widget in model.widgets">
         <div ng-switch="widget.widgetType">
-            <div ng-switch-when="HEADING">
-                <ng-include src="'views/widget/templates/widget-heading.component.client.html'">
-            </div>
-            <div ng-switch-when="IMAGE">
-                <ng-include src="'views/widget/templates/widget-image.component.client.html'">
-            </div>
-            <div ng-switch-when="YOUTUBE">
-                <ng-include src="'views/widget/templates/widget-youtube.component.client.html'">
-            </div>
+            <ng-include src="'views/widget/templates/widget.component.client.html'">
         </div>
     </div>
 

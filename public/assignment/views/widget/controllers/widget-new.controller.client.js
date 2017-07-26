@@ -1,7 +1,7 @@
 (function() {
     angular
         .module("WamApp")
-        .controller("WidgetListController", NewWidgetController);
+        .controller("NewWidgetController", NewWidgetController);
 
     function NewWidgetController($routeParams, WidgetService) {
         var model = this;
