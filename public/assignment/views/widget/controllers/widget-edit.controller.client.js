@@ -23,7 +23,7 @@
         init();
 
         function getWidgetIncludeUrl(widgetType) {
-            return 'views/widget/templates/editors/widget-' + widgetType + '-edit.component.client.html';
+            return 'views/widget/templates/editors/widget-' + widgetType.toLowerCase() + '-edit.component.client.html';
         }
 
         function updateWidget(widget) {
