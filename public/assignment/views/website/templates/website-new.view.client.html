@@ -47,6 +47,10 @@
         </div>
 
         <div class="col-xs-12 col-lg-9 nja-split-view-right c">
+            <div ng-show="model.error"
+                 class="alert alert-danger">
+                {{model.error}}
+            </div>
             <label for="name">Name</label>
             <input name="name"
                    ng-model="model.website.name"
