@@ -24,7 +24,10 @@
         this.deleteWidget = deleteWidget;
 
         function createWidget(pageId, widget) {
-            /* TODO */
+            widget.pageId = pageId;
+            widget._id = (new Date()).getTime() +"";
+            widgets.push(widget);
+            return widget;
         }
 
         function findWidgetsByPageId(pageId) {
@@ -47,11 +50,22 @@
         }
 
         function updateWidget(widgetId, widget) {
-            /* TODO */
+            for(var w in widgets) {
+                if(widgets[w]._id === widgetId) {
+                    widgets[w] = widget;
+                    return widgets[w];
+                }
+            }
+            return null;
         }
 
         function deleteWidget(widgetId) {
-            /* TODO */
+            for(var w in widgets) {
+                if(widgets[w]._id === widgetId) {
+                    widgets.splice(w, 1);
+                }
+            }
+            return null;
         }
     }
 })();

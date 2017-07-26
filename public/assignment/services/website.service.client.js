@@ -45,7 +45,6 @@
                     return websites[w];
                 }
             }
-
         }
 
         function updateWebsite(websiteId, website) {
