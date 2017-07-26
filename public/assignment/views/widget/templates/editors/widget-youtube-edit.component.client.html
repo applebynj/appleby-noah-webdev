@@ -1,6 +1,7 @@
 <div class="container-fluid">
     <label for="name">Name</label>
     <input name="name"
+           ng-model="model.widget.name"
            type="text"
            value="Home"
            class="form-control"
@@ -8,6 +9,7 @@
 
     <label for="text">Text</label>
     <input name="text"
+           ng-model="model.widget.text"
            type="text"
            placeholder="BLOG"
            class="form-control"
@@ -15,6 +17,7 @@
 
     <label for="url">URL</label>
     <input name="url"
+           ng-model="model.widget.url"
            type="text"
            placeholder="https://www.youtube.com/watch?something"
            class="form-control"
@@ -22,6 +25,7 @@
 
     <label for="width">Width</label>
     <input name="width"
+           ng-model="model.widget.width"
            type="number"
            placeholder="100%"
            class="form-control"
