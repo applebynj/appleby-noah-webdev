@@ -1,0 +1,43 @@
+<nav class="nja-no-collapse navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <div class="navbar-brand">
+                <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget"
+                   role="button">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                Edit Widget
+            </div>
+            <a class="navbar-brand navbar-right"
+               ng-click="updateWidget(model.widgetId, model.widget)"
+               role="button">
+                <span class="glyphicon glyphicon-ok"></span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div ng-switch="model.widget.widgetType">
+        <div ng-switch-when="HEADING">
+            <div ng-include src="'views/widget/templates/editors/widget-heading-edit.component.client.html'"></div>
+        </div>
+        <div ng-switch-when="IMAGE">
+            <div ng-include src="'views/widget/templates/editors/widget-image-edit.view.client.html'"></div>
+        </div>
+        <div ng-switch-when="YOUTUBE">
+            <div ng-include src="'views/widget/templates/editors/widget-youtube-edit.view.client.html'"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Start Footer (same across all pages) -->
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <a class="navbar-brand navbar-right"
+           href="#!/user/{{model.userId}}">
+            <span class="glyphicon glyphicon-user"></span>
+        </a>
+    </div>
+</nav>
+<!-- End Footer -->

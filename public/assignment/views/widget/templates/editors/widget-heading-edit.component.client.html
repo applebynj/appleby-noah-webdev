@@ -1,0 +1,39 @@
+<div class="container-fluid">
+    <label for="name">Name</label>
+    <input name="name"
+           value="Home"
+           type="text"
+           class="form-control"
+           id="name"/>
+
+    <label for="text">Text</label>
+    <input name="text"
+           placeholder="BLOG"
+           class="form-control"
+           type="text"
+           id="text"/>
+
+    <label for="size">Size</label>
+    <div class="dropdown"
+        id="size">
+        <button class="btn btn-default dropdown-toggle btn-block"
+                type="button" id="dropdownMenu1"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="true">
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu"
+            aria-labelledby="dropdownMenu1">
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+        </ul>
+    </div>
+
+    <a class="btn btn-default btn-danger btn-block"
+       href="../widget-list.view.client.html"
+       role="button">Delete</a>
+</div>
