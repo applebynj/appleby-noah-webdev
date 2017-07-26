@@ -13,6 +13,7 @@
         model.websiteId = $routeParams["wid"];
 
         function init() {
+            model.websites = WebsiteService.findWebsitesByUser(model.userId);
             model.website = WebsiteService.findWebsiteById(model.websiteId);
         }
         init();

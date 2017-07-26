@@ -10,7 +10,7 @@
                         Websites
                     </div>
                     <a class="navbar-brand navbar-right"
-                       href="website-new.view.client.html">
+                       href="#!/user/{{model.userId}}/website/new">
                         <span class="glyphicon glyphicon-plus"></span>
                     </a>
                 </div>
@@ -41,64 +41,9 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-3 visible-lg nja-split-view-left">
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-xs-10">
-                            <a href="../../page/templates/page-list.view.client.html">
-                                Wikipedia
-                            </a>
-                        </div>
-                        <div class="col-xs-2">
-                            <a href="website-edit.view.client.html">
-                                <span class="pull-right glyphicon glyphicon-cog"></span>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-xs-10">
-                            <a href="../../page/templates/page-list.view.client.html">
-                                Facebook
-                            </a>
-                        </div>
-                        <div class="col-xs-2">
-                            <a href="website-edit.view.client.html">
-                                <span class="pull-right glyphicon glyphicon-cog"></span>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-xs-10">
-                            <a href="../../page/templates/page-list.view.client.html">
-                                Reddit
-                            </a>
-                        </div>
-                        <div class="col-xs-2">
-                            <a href="website-edit.view.client.html">
-                                <span class="pull-right glyphicon glyphicon-cog"></span>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-xs-10">
-                            <a href="../../page/templates/page-list.view.client.html">
-                                Amazon
-                            </a>
-                        </div>
-                        <div class="col-xs-2">
-                            <a href="website-edit.view.client.html">
-                                <span class="pull-right glyphicon glyphicon-cog"></span>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+
+            <div ng-include="'views/website/templates/website-list.sidebar.component.client.html'"></div>
+
         </div>
 
         <div class="col-xs-12 col-lg-9 nja-split-view-right c">
