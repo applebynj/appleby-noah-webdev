@@ -7,9 +7,9 @@ var users = [
     {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi", email: "jose@annunzi.com"}
 ];
 
-app.get("/users", getAllUsers);
+app.get("/api/users", getAllUsers);
 
-app.get("/users/:userId", getUserById);
+app.get("/api/user/:userId", getUserById);
 
 function getAllUsers(req, res) {
     res.send(users);
