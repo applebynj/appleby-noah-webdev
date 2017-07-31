@@ -7,14 +7,18 @@ var users = [
     {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi", email: "jose@annunzi.com"}
 ];
 
-app.get("/users", function (req, res) {
-    res.send(users);
-});
+app.get("/users", getAllUsers);
 
-app.get("/users/:userId", function (req, res) {
+app.get("/users/:userId", getUserById);
+
+function getAllUsers(req, res) {
+    res.send(users);
+}
+
+function getUserById(req, res) {
     for(var u in users) {
         if(users[u]._id === req.params.userId) {
             res.send(users[u]);
         }
     }
-});
+}
