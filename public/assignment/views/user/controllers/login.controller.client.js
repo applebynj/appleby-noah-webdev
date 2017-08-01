@@ -15,16 +15,16 @@
             if(!user) {
                 model.errorMessage = "User not found";
             }
-            var promise  = UserService.findUserByCredentials(user.username, user.password);
-            promise.then(function(res){
-                user = res.data;
-                if(user === '0') {
-                    model.errorMessage = "User not found";
-                } else {
-                    $rootScope.currentUser = user;
-                    $location.url("user/" + user._id);
-                }
-            });
+            UserService.findUserByCredentials(user.username, user.password)
+                then(function(res){
+                    user = res.data;
+                    if(user === '0') {
+                        model.errorMessage = "User not found";
+                    } else {
+                        $rootScope.currentUser = user;
+                        $location.url("user/" + user._id);
+                    }
+                });
         }
     }
 })();
