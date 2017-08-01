@@ -19,11 +19,7 @@
                     var _user = res.data;
                     if(_user === '0') {
                         if(user.password === user.password2) {
-                            UserService.createUser(user)
-                                .then(function(res) {
-                                    _user = res.data;
-                                    $location.url("/user/" + _user._id);
-                                })
+                            return UserService.createUser(user)
                         } else {
                             model.error = "Passwords do not match";
                         }
@@ -31,6 +27,10 @@
                     else {
                         model.error = "User already exists";
                     }
+                })
+                .then(function(res) {
+                    _user = res.data;
+                    $location.url("/user/" + _user._id);
                 });
         }
     }
