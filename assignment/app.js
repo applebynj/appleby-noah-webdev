@@ -8,10 +8,9 @@ var users = [
 ];
 
 app.get("/api/users", getAllUsers);
-
 app.get("/api/user/:userId", getUserById);
-
-app.get("/api/user", findUserByCredentials);
+app.get("/api/user", findUser);
+app.post("/api/user", createUser);
 
 function getAllUsers(req, res) {
     res.send(users);
@@ -25,18 +24,38 @@ function getUserById(req, res) {
     }
 }
 
-function findUserByCredentials(req, res) {
+function findUser(req, res) {
     var username = req.query.username;
     var password = req.query.password;
 
-    for (var u in users) {
-        var _user = users[u];
-        if (username === _user.username &&
-            password === _user.password) {
-            res.send(_user);
-            return;
+    if(username && password) {
+        for (var u in users) {
+            var _user = users[u];
+            if (username === _user.username &&
+                password === _user.password) {
+                res.send(_user);
+                return;
+            }
+        }
+    } else if(username) {
+        for (var u in users) {
+            var _user = users[u];
+            if (username === _user.username) {
+                res.send(_user);
+                console.log(_user);
+                return;
+            }
         }
     }
     res.send("0");
     return;
+}
+
+function createUser(req, res) {
+    /* TODO: further validation */
+    var user = req.body;
+    user._id = (new Date()).getTime() +"";
+    users.push(user);
+    res.send(user);
+    return user;
 }

@@ -23,10 +23,7 @@
         return api;
 
         function createUser(user) {
-            /* TODO: further validation */
-            user._id = (new Date()).getTime() +"";
-            users.push(user);
-            return user;
+            return $http.post('/api/user', user);
         }
 
         function findUserById(userId) {
@@ -34,13 +31,7 @@
         }
 
         function findUserByUsername(username) {
-            for (var u in users) {
-                var _user = users[u];
-                if (username === _user.username) {
-                    return _user;
-                }
-            }
-            return null;
+            return $http.get("/api/user/?username=" + username);
         }
 
         function findUserByCredentials(username, password) {
