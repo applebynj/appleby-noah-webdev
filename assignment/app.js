@@ -7,10 +7,12 @@ var users = [
     {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi", email: "jose@annunzi.com"}
 ];
 
+/* replace users with user!*/
 app.get("/api/users", getAllUsers);
 app.get("/api/user/:userId", getUserById);
 app.get("/api/user", findUser);
 app.post("/api/user", createUser);
+app.put("/api/user/:userId", updateUser);
 
 function getAllUsers(req, res) {
     res.send(users);
@@ -58,4 +60,19 @@ function createUser(req, res) {
     users.push(user);
     res.send(user);
     return user;
+}
+
+function updateUser(req, res) {
+    var userId = req.params.userId;
+    var user = req.body;
+
+    /* TODO: finish this logic */
+    for(var u in users) {
+        if(users[u]._id === userId) {
+            users[u] = user;
+            res.send(user);
+            return;
+        }
+    }
+    res.sendStatus(404);
 }

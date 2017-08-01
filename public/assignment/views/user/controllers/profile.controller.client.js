@@ -13,15 +13,18 @@
 
         function init() {
             var promise = UserService.findUserById(model.userId);
-            promise.then(function (response) {
+            promise.then(function(response) {
                 model.user = response.data;
             });
         }
         init();
 
         function updateUser(user) {
-            UserService.updateUser(user._id, user);
-            $location.url("/");
+            var promise = UserService.updateUser(user._id, user);
+            promise.then(function(response) {
+                model.user = response.data;
+                $location.url("#!/assignment/user/" + model.user._id);
+            })
         }
 
         function deleteUser(user) {
