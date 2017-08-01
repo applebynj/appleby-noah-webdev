@@ -11,6 +11,8 @@ app.get("/api/users", getAllUsers);
 
 app.get("/api/user/:userId", getUserById);
 
+app.get("/api/user", findUserByCredentials);
+
 function getAllUsers(req, res) {
     res.send(users);
 }
@@ -21,4 +23,20 @@ function getUserById(req, res) {
             res.send(users[u]);
         }
     }
+}
+
+function findUserByCredentials(req, res) {
+    var username = req.query.username;
+    var password = req.query.password;
+
+    for (var u in users) {
+        var _user = users[u];
+        if (username === _user.username &&
+            password === _user.password) {
+            res.send(_user);
+            return;
+        }
+    }
+    res.send("0");
+    return;
 }
