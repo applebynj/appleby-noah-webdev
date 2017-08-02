@@ -23,15 +23,18 @@
         return api;
 
         function createUser(user) {
-            return $http.post('/api/user', user);
+            var url = '/api/user';
+            return $http.post(url, user);
         }
 
         function findUserById(userId) {
-            return $http.get("/api/user/" + userId);
+            var url = "/api/user/" + userId;
+            return $http.get(url);
         }
 
         function findUserByUsername(username) {
-            return $http.get("/api/user/?username=" + username);
+            var url = "/api/user/?username=" + username;
+            return $http.get(url);
         }
 
         function findUserByCredentials(username, password) {
