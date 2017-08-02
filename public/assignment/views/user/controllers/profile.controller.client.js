@@ -30,8 +30,11 @@
         }
 
         function deleteUser(user) {
-            UserService.deleteUser(user._id);
-            $location.url("/login");
+            UserService
+                .deleteUser(user._id)
+                .then(function() {
+                    $location.url("/login");
+                })
         }
     }
 })();

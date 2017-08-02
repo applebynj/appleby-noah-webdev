@@ -11,7 +11,7 @@ app.post("/api/user", createUser);
 app.get("/api/user", findUser); /* covers findUserById and findUserByCredentials based on request body */
 app.get("/api/user/:userId", findUserById);
 app.put("/api/user/:userId", updateUser);
-/*app.delete("/api/user/:userId", deleteUser)*/
+app.delete("/api/user/:userId", deleteUser)
 
 function createUser(req, res) {
     /* TODO: further validation */
@@ -74,11 +74,18 @@ function updateUser(req, res) {
     res.sendStatus(404);
 }
 
-/*
 function deleteUser(req, res) {
+    var userId = req.params.userId;
 
+    for(var u in users) {
+        if(users[u]._id === userId) {
+            users.splice(u, 1);
+            res.sendStatus(204);
+            return;
+        }
+    }
+    res.sendStatus(404);
 }
-*/
 
 
 /*
