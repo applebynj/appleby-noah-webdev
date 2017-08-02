@@ -3,7 +3,7 @@
         .module("WamApp")
         .service("WebsiteService", WebsiteService);
 
-    function WebsiteService() {
+    function WebsiteService($http) {
 
         var websites = [
             { "_id": "123", "name": "Facebook", "developerId": "456", "description": "Lorem" },
@@ -29,14 +29,8 @@
         }
 
         function findWebsitesByUser(userId) {
-            var sites = [];
-
-            for(var w in websites) {
-                if(websites[w].developerId === userId) {
-                    sites.push(websites[w]);
-                }
-            }
-            return sites;
+            var url = "/api/user/" + userId + "/website";
+            return $http.get(url);
         }
 
         function findWebsiteById(websiteId) {
