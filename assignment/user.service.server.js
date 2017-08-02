@@ -19,7 +19,6 @@ function createUser(req, res) {
     user._id = (new Date()).getTime() +"";
     users.push(user);
     res.send(user);
-    return user;
 }
 
 function findUser(req, res) {
@@ -56,6 +55,7 @@ function findUserById(req, res) {
             res.send(users[u]);
         }
     }
+    res.sendStatus(404);
 }
 
 function updateUser(req, res) {

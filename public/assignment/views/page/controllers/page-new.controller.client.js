@@ -12,13 +12,21 @@
         model.websiteId = $routeParams['wid'];
 
         function init() {
+            PageService
+                .findPagesByWebsiteId(model.websiteId)
+                .then(function(res) {
+                    model.pages = res.data;
+                });
         }
         init();
 
         function createPage(page) {
             if(page != undefined) {
-                page = PageService.createPage(model.websiteId, page);
-                $location.url("/user/" + model.userId + "/website/" + model.websiteId + "/page");
+                PageService
+                    .createPage(model.websiteId, page)
+                    .then(function() {
+                        $location.url("/user/" + model.userId + "/website/" + model.websiteId + "/page");
+                    });
             }
             else{
                 model.error = "Invalid page configuration.";
