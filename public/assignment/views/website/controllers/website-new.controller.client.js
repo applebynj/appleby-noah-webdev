@@ -16,9 +16,12 @@
         init();
 
         function createWebsite(website) {
-            if(website != undefined) {
-                website = WebsiteService.createWebsite(model.userId, website);
-                $location.url("/user/" + model.userId + "/website");
+            if(website !== undefined) {
+                WebsiteService
+                    .createWebsite(model.userId, website)
+                    .then(function() {
+                        $location.url("/user/" + model.userId + "/website");
+                    });
             }
             else{
                 model.error = "Invalid website configuration.";

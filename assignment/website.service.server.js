@@ -1,6 +1,7 @@
 var app = require("../express.js");
 
 app.get("/api/user/:userId/website", findWebsitesByUser);
+app.post("/api/user/:userId/website", createWebsite);
 
 
 var websites = [
@@ -14,6 +15,7 @@ var websites = [
 ];
 
 function findWebsitesByUser(req, res) {
+    /* TODO: check that user exists */
     var userId = req.params.userId;
 
     var sites = [];
@@ -24,4 +26,14 @@ function findWebsitesByUser(req, res) {
         }
     }
     res.json(sites);
+}
+
+function createWebsite(req, res) {
+    var userId = req.params.userId;
+    var website = req.body;
+
+    website.developerId = userId;
+    website._id = (new Date()).getTime() +"";
+    websites.push(website);
+    res.json(website);
 }
