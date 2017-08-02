@@ -30,7 +30,10 @@
 
         function findWebsitesByUser(userId) {
             var url = "/api/user/" + userId + "/website";
-            return $http.get(url);
+            return $http.get(url)
+                .then(function(res) {
+                    return res.data;
+                });
         }
 
         function findWebsiteById(websiteId) {
