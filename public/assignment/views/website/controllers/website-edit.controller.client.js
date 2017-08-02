@@ -27,8 +27,11 @@
         init();
 
         function updateWebsite(website) {
-            WebsiteService.updateWebsite(model.websiteId, website);
-            $location.url("user/" + model.userId + "/website");
+            WebsiteService
+                .updateWebsite(model.websiteId, website)
+                .then(function() {
+                    $location.url("user/" + model.userId + "/website");
+                });
         }
 
         function deleteWebsite() {

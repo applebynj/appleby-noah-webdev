@@ -46,22 +46,13 @@
         }
 
         function updateWebsite(websiteId, website) {
-            for(var w in websites) {
-                if(websites[w]._id === websiteId) {
-                    websites[w] = website;
-                    return websites[w];
-                }
-            }
-            return null;
+            var url = "/api/website/" + websiteId;
+            return $http.put(url, website);
         }
 
         function deleteWebsite(websiteId) {
-            for(var w in websites) {
-                if(websites[w]._id === websiteId) {
-                    websites.splice(w, 1);
-                }
-            }
-            return null;
+            var url = "/api/website/" + websiteId;
+            return $http.delete(url);
         }
     }
 })();

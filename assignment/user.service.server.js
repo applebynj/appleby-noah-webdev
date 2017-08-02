@@ -48,7 +48,6 @@ function findUser(req, res) {
         }
     }
     res.send("0");
-    return;
 }
 
 function findUserById(req, res) {
