@@ -1,6 +1,7 @@
 var app = require("../express.js");
 
 app.get("/api/user/:userId/website", findWebsitesByUser);
+app.get("/api/user/:userId/website/:websiteId", findWebsiteById);
 app.post("/api/user/:userId/website", createWebsite);
 
 
@@ -26,6 +27,18 @@ function findWebsitesByUser(req, res) {
         }
     }
     res.json(sites);
+}
+
+function findWebsiteById(req, res) {
+    var websiteId = req.params.websiteId;
+
+    for(var w in websites) {
+        if(websites[w]._id === websiteId) {
+            res.json(websites[w]);
+            return;
+        }
+    }
+    res.sendStatus(404);
 }
 
 function createWebsite(req, res) {

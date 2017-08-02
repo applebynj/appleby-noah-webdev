@@ -13,8 +13,16 @@
         model.websiteId = $routeParams["wid"];
 
         function init() {
-            model.websites = WebsiteService.findWebsitesByUser(model.userId);
-            model.website = WebsiteService.findWebsiteById(model.websiteId);
+            WebsiteService
+                .findWebsitesByUser(model.userId)
+                .then(function(websites) {
+                    model.websites = websites;
+                });
+            WebsiteService
+                .findWebsiteById(model.userId, model.websiteId)
+                .then(function(website) {
+                    model.website = website;
+                });
         }
         init();
 
@@ -24,8 +32,11 @@
         }
 
         function deleteWebsite() {
-            WebsiteService.deleteWebsite(model.websiteId);
-            $location.url("user/" + model.userId + "/website");
+            WebsiteService
+                .deleteWebsite(model.websiteId)
+                .then(function() {
+                    $location.url("user/" + model.userId + "/website");
+                });
         }
     }
 })();
