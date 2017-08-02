@@ -28,13 +28,23 @@
         init();
 
         function updatePage(page) {
-            PageService.updatePage(model.pageId, page);
-            $location.url("user/" + model.userId + "/website/" + model.websiteId + "/page");
+            PageService
+                .updatePage(model.pageId, page)
+                .then(function(){
+                    $location.url("user/" + model.userId
+                        + "/website/" + model.websiteId
+                        + "/page");
+                });
         }
 
         function deletePage() {
-            PageService.deletePage(model.pageId);
-            $location.url("user/" + model.userId + "/website/" + model.websiteId + "/page");
+            PageService
+                .deletePage(model.pageId)
+                .then(function(){
+                    $location.url("user/" + model.userId
+                        + "/website/" + model.websiteId
+                        + "/page");
+                });
         }
     }
 })();

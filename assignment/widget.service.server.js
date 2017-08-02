@@ -12,31 +12,70 @@ var widgets = [
     { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
 ];
 
-/*
 app.post("/api/page/:pageId/widget", createWidget);
 app.get("/api/page/:pageId/widget", findAllWidgetsForPage);
 app.get("/api/widget/:widgetId", findWidgetById);
 app.put("/api/widget/:widgetId", updateWidget);
 app.delete("/api/widget/:widgetId", deleteWidget);
-*/
 
-/*
- function createWidget(req, res) {
+function createWidget(req, res) {
+    var pageId = req.params.pageId;
+    var widget = req.body;
 
- }
+    widget.pageId = pageId;
+    widget._id = (new Date()).getTime() +"";
+    widgets.push(widget);
+    res.json(widget);
+}
 
- function findAllWidgetsForPage(req, res) {
+function findAllWidgetsForPage(req, res) {
+    var pageId = req.params.pageId;
 
- }
+    var returnWidgets = [];
 
- function findWidgetById(req, res) {
+    for(var w in widgets) {
+        if(widgets[w].pageId === pageId) {
+            returnWidgets.push(widgets[w]);
+        }
+    }
+    res.json(returnWidgets);
+}
 
- }
+function findWidgetById(req, res) {
+    var widgetId = req.params.widgetId;
 
- function updateWidget(req, res) {
+    for(var w in widgets) {
+        if(widgets[w]._id === widgetId) {
+            res.json(widgets[w]);
+            return;
+        }
+    }
+    res.sendStatus(404);
+}
 
- }
- function deleteWidget(req, res) {
+function updateWidget(req, res) {
+    var widgetId = req.params.widgetId;
+    var widget = req.body;
 
- }
- */
+    for(var w in widgets) {
+        if(widgets[w]._id === widgetId) {
+            widgets[w] = widget;
+            res.json(widgets[w]);
+            return;
+        }
+    }
+    res.send("0");
+}
+
+function deleteWidget(req, res) {
+    var widgetId = req.params.widgetId;
+
+    for(var w in widgets) {
+        if(widgets[w]._id === widgetId) {
+            widgets.splice(w, 1);
+            res.sendStatus(204);
+            return;
+        }
+    }
+    res.sendStatus(404);
+}
