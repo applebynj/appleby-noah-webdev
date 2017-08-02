@@ -37,8 +37,8 @@
                 });
         }
 
-        function findWebsiteById(userId, websiteId) {
-            var url = "/api/user/" + userId + "/website/" + websiteId;
+        function findWebsiteById(websiteId) {
+            var url = "/api/website/" + websiteId;
             return $http.get(url)
                 .then(function(res) {
                     return res.data;

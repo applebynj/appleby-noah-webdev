@@ -7,29 +7,26 @@ var users = [
     {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi", email: "jose@annunzi.com"}
 ];
 
-/* TODO: replace users with user!*/
-app.get("/api/users", getAllUsers);
-app.get("/api/user/:userId", getUserById);
-app.get("/api/user", findUser);
 app.post("/api/user", createUser);
+app.get("/api/user", findUser); /* covers findUserById and findUserByCredentials based on request body */
+app.get("/api/user/:userId", findUserById);
 app.put("/api/user/:userId", updateUser);
+/*app.delete("/api/user/:userId", deleteUser)*/
 
-function getAllUsers(req, res) {
-    res.send(users);
-}
-
-function getUserById(req, res) {
-    for(var u in users) {
-        if(users[u]._id === req.params.userId) {
-            res.send(users[u]);
-        }
-    }
+function createUser(req, res) {
+    /* TODO: further validation */
+    var user = req.body;
+    user._id = (new Date()).getTime() +"";
+    users.push(user);
+    res.send(user);
+    return user;
 }
 
 function findUser(req, res) {
     var username = req.query.username;
     var password = req.query.password;
 
+    /* findUserByCredentials */
     if(username && password) {
         for (var u in users) {
             var _user = users[u];
@@ -39,7 +36,8 @@ function findUser(req, res) {
                 return;
             }
         }
-    } else if(username) {
+    } /* findUserById */
+    else if(username) {
         for (var u in users) {
             var _user = users[u];
             if (username === _user.username) {
@@ -53,13 +51,12 @@ function findUser(req, res) {
     return;
 }
 
-function createUser(req, res) {
-    /* TODO: further validation */
-    var user = req.body;
-    user._id = (new Date()).getTime() +"";
-    users.push(user);
-    res.send(user);
-    return user;
+function findUserById(req, res) {
+    for(var u in users) {
+        if(users[u]._id === req.params.userId) {
+            res.send(users[u]);
+        }
+    }
 }
 
 function updateUser(req, res) {
@@ -76,3 +73,20 @@ function updateUser(req, res) {
     }
     res.sendStatus(404);
 }
+
+/*
+function deleteUser(req, res) {
+
+}
+*/
+
+
+/*
+ Not needed for assignment:
+
+ app.get("/api/users", getAllUsers);
+
+ function getAllUsers(req, res) {
+ res.send(users);
+ }
+ */

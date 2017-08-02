@@ -1,10 +1,5 @@
 var app = require("../express.js");
 
-app.get("/api/user/:userId/website", findWebsitesByUser);
-app.get("/api/user/:userId/website/:websiteId", findWebsiteById);
-app.post("/api/user/:userId/website", createWebsite);
-
-
 var websites = [
     { "_id": "123", "name": "Facebook", "developerId": "456", "description": "Lorem" },
     { "_id": "234", "name": "Tweeter", "developerId": "456", "description": "Lorem" },
@@ -15,7 +10,26 @@ var websites = [
     { "_id": "789", "name": "Chess", "developerId": "234", "description": "Lorem" }
 ];
 
-function findWebsitesByUser(req, res) {
+app.post("/api/user/:userId/website", createWebsite);
+app.get("/api/user/:userId/website", findAllWebsitesForUser);
+app.get("/api/website/:websiteId", findWebsiteById);
+/*
+app.put("/api/website/:websiteId", updateWebsite);
+app.delete("/api/website/:websiteId", deleteWebsite);
+*/
+
+function createWebsite(req, res) {
+    var userId = req.params.userId;
+    var website = req.body;
+
+    website.developerId = userId;
+    website._id = (new Date()).getTime() +"";
+    websites.push(website);
+    res.json(website);
+}
+
+
+function findAllWebsitesForUser(req, res) {
     /* TODO: check that user exists */
     var userId = req.params.userId;
 
@@ -41,12 +55,10 @@ function findWebsiteById(req, res) {
     res.sendStatus(404);
 }
 
-function createWebsite(req, res) {
-    var userId = req.params.userId;
-    var website = req.body;
+function updateWebsite(req, res) {
 
-    website.developerId = userId;
-    website._id = (new Date()).getTime() +"";
-    websites.push(website);
-    res.json(website);
+}
+
+function deleteWebsite(req, res) {
+
 }

@@ -19,7 +19,7 @@
                     model.websites = websites;
                 });
             WebsiteService
-                .findWebsiteById(model.userId, model.websiteId)
+                .findWebsiteById(model.websiteId)
                 .then(function(website) {
                     model.website = website;
                 });
