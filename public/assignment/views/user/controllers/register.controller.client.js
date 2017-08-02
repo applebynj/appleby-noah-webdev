@@ -14,7 +14,8 @@
         init();
 
         function registerUser(user) {
-            UserService.findUserByUsername(user.username)
+            UserService
+                .findUserByUsername(user.username)
                 .then(function(res) {
                     var _user = res.data;
                     if(_user === '0') {

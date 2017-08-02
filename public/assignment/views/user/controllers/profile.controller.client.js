@@ -12,7 +12,8 @@
         model.userId = $routeParams["uid"];
 
         function init() {
-            UserService.findUserById(model.userId)
+            UserService
+                .findUserById(model.userId)
                 .then(function(response) {
                     model.user = response.data;
                 });
@@ -20,7 +21,8 @@
         init();
 
         function updateUser(user) {
-            UserService.updateUser(user._id, user)
+            UserService
+                .updateUser(user._id, user)
                 .then(function(response) {
                     model.user = response.data;
                     $location.url("#!/assignment/user/" + model.user._id);
