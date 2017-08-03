@@ -14,18 +14,37 @@
         model.pageId = $routeParams["pid"];
 
         function init() {
-            model.page = PageService.findPageById(model.pageId);
+            PageService
+                .findPagesByWebsiteId(model.websiteId)
+                .then(function(res) {
+                    model.pages = res.data;
+                });
+            PageService
+                .findPageById(model.pageId)
+                .then(function(res) {
+                    model.page = res.data;
+                });
         }
         init();
 
         function updatePage(page) {
-            PageService.updatePage(model.pageId, page);
-            $location.url("user/" + model.userId + "/website/" + model.websiteId + "/page");
+            PageService
+                .updatePage(model.pageId, page)
+                .then(function(){
+                    $location.url("user/" + model.userId
+                        + "/website/" + model.websiteId
+                        + "/page");
+                });
         }
 
         function deletePage() {
-            PageService.deletePage(model.pageId);
-            $location.url("user/" + model.userId + "/website/" + model.websiteId + "/page");
+            PageService
+                .deletePage(model.pageId)
+                .then(function(){
+                    $location.url("user/" + model.userId
+                        + "/website/" + model.websiteId
+                        + "/page");
+                });
         }
     }
 })();

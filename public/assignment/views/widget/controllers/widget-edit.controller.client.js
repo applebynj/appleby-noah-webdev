@@ -17,23 +17,44 @@
 
 
         function init() {
-            model.widgets = WidgetService.findWidgetsByPageId(model.pageId);
-            model.widget = WidgetService.findWidgetById(model.widgetId);
+            WidgetService
+                .findWidgetsByPageId(model.pageId)
+                .then(function(res) {
+                    model.widgets = res.data;
+                });
+            WidgetService.
+                findWidgetById(model.widgetId)
+                .then(function(res) {
+                    model.widget = res.data;
+                })
         }
         init();
 
         function getWidgetIncludeUrl(widgetType) {
-            return 'views/widget/templates/editors/widget-' + widgetType.toLowerCase() + '-edit.component.client.html';
+            /* Wait for widget to be received */
+            if(widgetType) {
+                return 'views/widget/templates/editors/widget-' + widgetType.toLowerCase() + '-edit.component.client.html';
+            }
         }
 
         function updateWidget(widget) {
-            WidgetService.updateWidget(model.widgetId, widget);
-            $location.url("user/" + model.userId + "/website/" + model.websiteId + "/page/" + model.pageId + "/widget");
+            WidgetService
+                .updateWidget(model.widgetId, widget)
+                .then(function() {
+                    $location.url("user/" + model.userId
+                        + "/website/" + model.websiteId
+                        + "/page/" + model.pageId + "/widget");
+                });
         }
 
         function deleteWidget() {
-            WidgetService.deleteWidget(model.widgetId);
-            $location.url("user/" + model.userId + "/website/" + model.websiteId + "/page/" + model.pageId + "/widget");
+            WidgetService
+                .deleteWidget(model.widgetId)
+                .then(function() {
+                    $location.url("user/" + model.userId
+                        + "/website/" + model.websiteId
+                        + "/page/" + model.pageId + "/widget");
+                });
         }
     }
 })();

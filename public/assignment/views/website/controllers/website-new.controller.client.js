@@ -11,14 +11,21 @@
         model.userId = $routeParams["uid"];
 
         function init() {
-            model.websites = WebsiteService.findWebsitesByUser(model.userId);
+            WebsiteService
+                .findWebsitesByUser(model.userId)
+                .then(function(websites) {
+                    model.websites = websites;
+                });
         }
         init();
 
         function createWebsite(website) {
-            if(website != undefined) {
-                website = WebsiteService.createWebsite(model.userId, website);
-                $location.url("/user/" + model.userId + "/website");
+            if(website !== undefined) {
+                WebsiteService
+                    .createWebsite(model.userId, website)
+                    .then(function() {
+                        $location.url("/user/" + model.userId + "/website");
+                    });
             }
             else{
                 model.error = "Invalid website configuration.";

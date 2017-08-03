@@ -14,18 +14,25 @@
         init();
 
         function registerUser(user) {
-            var _user = UserService.findUserByUsername(user.username);
-            if(!_user) {
-                if(user.password === user.password2) {
-                    user = UserService.createUser(user);
-                    $location.url("/user/" + user._id);
-                } else {
-                    model.error = "Passwords do not match";
-                }
-            }
-            else {
-                model.error = "User already exists";
-            }
+            UserService
+                .findUserByUsername(user.username)
+                .then(function(res) {
+                    var _user = res.data;
+                    if(_user === '0') {
+                        if(user.password === user.password2) {
+                            return UserService.createUser(user)
+                        } else {
+                            model.error = "Passwords do not match";
+                        }
+                    }
+                    else {
+                        model.error = "User already exists";
+                    }
+                })
+                .then(function(res) {
+                    _user = res.data;
+                    $location.url("/user/" + _user._id);
+                });
         }
     }
 })();

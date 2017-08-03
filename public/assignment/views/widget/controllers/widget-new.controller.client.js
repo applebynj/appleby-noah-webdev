@@ -13,15 +13,25 @@
         model.pageId = $routeParams["pid"];
 
         function init() {
-            model.widgets = WidgetService.findWidgetsByPageId(model.pageId);
+            WidgetService
+                .findWidgetsByPageId(model.pageId)
+                .then(function(res) {
+                    model.widgets = res.data;
+                });
         }
         init();
 
         function createWidget(widgetType) {
             var widget = {};
             widget.widgetType = widgetType;
-            widget = WidgetService.createWidget(model.pageId, widget);
-            $location.url("/user/" + model.userId + "/website/" + model.websiteId + "/page/" + model.pageId + "/widget/" + widget._id);
+            WidgetService
+                .createWidget(model.pageId, widget)
+                .then(function(res) {
+                    widget = res.data;
+                    $location.url("/user/" + model.userId + "/website/"
+                        + model.websiteId + "/page/" + model.pageId
+                        + "/widget/" + widget._id);
+                })
         }
     }
 })();

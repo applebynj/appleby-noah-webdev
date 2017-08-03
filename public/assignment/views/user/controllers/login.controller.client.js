@@ -3,7 +3,7 @@
         .module("WamApp")
         .controller("LoginController", LoginController)
 
-    function LoginController($location, UserService) {
+    function LoginController($location, UserService, $rootScope) {
         var model = this;
 
         model.login = login;
@@ -15,12 +15,17 @@
             if(!user) {
                 model.errorMessage = "User not found";
             }
-            user = UserService.findUserByCredentials(user.username, user.password);
-            if(user === null) {
-                model.errorMessage = "User not found";
-            } else {
-                $location.url("user/" + user._id);
-            }
+            UserService
+                .findUserByCredentials(user.username, user.password)
+                .then(function(res){
+                    user = res.data;
+                    if(user === '0') {
+                        model.errorMessage = "User not found";
+                    } else {
+                        $rootScope.currentUser = user;
+                        $location.url("user/" + user._id);
+                    }
+                });
         }
     }
 })();

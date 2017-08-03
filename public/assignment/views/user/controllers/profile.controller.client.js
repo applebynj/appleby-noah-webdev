@@ -12,18 +12,29 @@
         model.userId = $routeParams["uid"];
 
         function init() {
-            model.user = UserService.findUserById(model.userId);
+            UserService
+                .findUserById(model.userId)
+                .then(function(response) {
+                    model.user = response.data;
+                });
         }
         init();
 
         function updateUser(user) {
-            UserService.updateUser(user._id, user);
-            $location.url("/");
+            UserService
+                .updateUser(user._id, user)
+                .then(function(response) {
+                    model.user = response.data;
+                    $location.url("#!/assignment/user/" + model.user._id);
+                })
         }
 
         function deleteUser(user) {
-            UserService.deleteUser(user._id);
-            $location.url("/login");
+            UserService
+                .deleteUser(user._id)
+                .then(function() {
+                    $location.url("/login");
+                })
         }
     }
 })();

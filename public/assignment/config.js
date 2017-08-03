@@ -4,6 +4,7 @@
         .config(configuration);
 
     function configuration($routeProvider) {
+
         $routeProvider
             .when("/", {
                 templateUrl: "views/home.view.client.html",
@@ -74,7 +75,7 @@
         //Default Route
             .otherwise({
                 templateUrl: "views/user/templates/login.view.client.html",
-                controller: "loginController",
+                controller: "LoginController",
                 controllerAs: "model"
             })
     }
