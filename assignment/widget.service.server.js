@@ -82,7 +82,7 @@ function updateWidgetOrder(req, res) {
             if (w.pageId === pageId) {
                 i += "";
                 /*req query var comes back as string type?*/
-                if (i === initial) { /*why double not trip*/
+                if (i === initial) {
                     widgetsInitial = i;
                     widget = w;
                 } else if (i === final) {
@@ -91,13 +91,11 @@ function updateWidgetOrder(req, res) {
             }
         }
         if (widget) {
-            console.log(widgets);
             widgets.splice(widgetsInitial, 1);
             var newWidgets = widgets.slice(0, widgetsFinal);
             newWidgets.push(widget);
             newWidgets = newWidgets.concat(widgets.slice(widgetsFinal));
             widgets = newWidgets;
-            console.log(widgets);
             /*res.sendStatus(404);*/
             res.send("moved");
             return;
