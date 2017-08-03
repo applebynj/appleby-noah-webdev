@@ -23,13 +23,11 @@
         <input  name="pageId"    value="{{model.pageId}}"   style="display: none"/>
         <input  name="widgetId"  value="{{model.widget._id}}"   style="display: none"/>
         <button type="submit"    class="btn btn-block btn-primary">Upload Image</button>
+
+        <a class="btn btn-default btn-danger btn-block"
+           ng-click="model.deleteWidget()"
+           role="button">Delete</a>
+
     </form>
 
-    <a class="btn btn-default btn-primary btn-block"
-       href="#"
-       role="button">Upload Image</a>
-
-    <a class="btn btn-default btn-danger btn-block"
-       ng-click="model.deleteWidget()"
-       role="button">Delete</a>
 </div>
