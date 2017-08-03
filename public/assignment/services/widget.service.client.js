@@ -28,6 +28,7 @@
 
         function updateWidget(widgetId, widget) {
             var url = "/api/widget/" + widgetId;
+            $http.put("/api/page/321/widget?initial=1&final=0");
             return $http.put(url, widget);
         }
 

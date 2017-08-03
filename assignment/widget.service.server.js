@@ -16,6 +16,7 @@ app.post("/api/page/:pageId/widget", createWidget);
 app.get("/api/page/:pageId/widget", findAllWidgetsForPage);
 app.get("/api/widget/:widgetId", findWidgetById);
 app.put("/api/widget/:widgetId", updateWidget);
+app.put("/api/page/:pageId/widget", updateWidgetOrder);
 app.delete("/api/widget/:widgetId", deleteWidget);
 
 function createWidget(req, res) {
@@ -65,6 +66,46 @@ function updateWidget(req, res) {
         }
     }
     res.send("0");
+}
+
+function updateWidgetOrder(req, res) {
+    var pageId = req.params.pageId,
+        initial = req.query.initial,
+        final = req.query.final;
+
+    var widget,
+        widgetsInitial, widgetsFinal;
+
+    if(initial !== final) {
+        for (var i = 0; i < widgets.length; i++) {
+            var w = widgets[i];
+            if (w.pageId === pageId) {
+                i += "";
+                /*req query var comes back as string type?*/
+                if (i === initial) { /*why double not trip*/
+                    widgetsInitial = i;
+                    widget = w;
+                } else if (i === final) {
+                    widgetsFinal = i;
+                }
+            }
+        }
+        if (widget) {
+            console.log(widgets);
+            widgets.splice(widgetsInitial, 1);
+            var newWidgets = widgets.slice(0, widgetsFinal);
+            newWidgets.push(widget);
+            newWidgets = newWidgets.concat(widgets.slice(widgetsFinal));
+            widgets = newWidgets;
+            console.log(widgets);
+            /*res.sendStatus(404);*/
+            res.send("moved");
+            return;
+        }
+    } else {
+        res.send("no move");
+    }
+    res.sendStatus(404);
 }
 
 function deleteWidget(req, res) {

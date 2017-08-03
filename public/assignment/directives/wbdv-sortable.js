@@ -1,21 +1,26 @@
 (function () {
     angular
         .module("wbdvDirectives", [])
-        .controller("directiveController", directiveController)
-        .directive("sortable", sortableDirective);
+        .directive("wbdvSortable", wbdvSortableTag);
 
-    function sortableDirective() {
-        function linkFunction(scope, element) {
-            var ul = element.find("ul");
-            ul.sortable();
+    function wbdvSortableTag($http, $routeParams) {
+        function moveWidget(scope, element) {
+            var startIndex = -1;
+            var endIndex = -1;
+            var pageId = $routeParams['pid'];
+            $(element).sortable({
+                axis: "y",
+                start: function (event, ui) {
+                    startIndex = $(ui.item).index();
+                },
+                stop: function (event, ui) {
+                    endIndex = $(ui.item).index();
+                    $http.put("/api/page/" + pageId + "/widget?initial="+startIndex+"&final="+endIndex);
+                }
+            });
         }
         return {
-            templateUrl: 'widget-list.html',
-            link: linkFunction
-        }
+            link: moveWidget
+        };
     }
-
-    function directiveController($scope) {
-
-    }
-});
+})();
