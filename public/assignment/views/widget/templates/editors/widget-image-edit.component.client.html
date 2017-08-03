@@ -1,20 +1,4 @@
 <div class="container-fluid">
-    <label for="name">Name</label>
-    <input name="name"
-           ng-model="model.widget.name"
-           value="Home"
-           type="text"
-           class="form-control"
-           id="name"/>
-
-    <label for="text">Text</label>
-    <input name="text"
-           ng-model="model.widget.text"
-           type="text"
-           placeholder="BLOG"
-           class="form-control"
-           id="text"/>
-
     <label for="url">URL</label>
     <input name="url"
            ng-model="model.widget.url"
@@ -31,11 +15,15 @@
            class="form-control"
            id="width"/>
 
-    <label for="fileUpload">Upload</label>
-    <input name="fileUpload"
-           type="file"
-           class="form-control"
-           id="fileUpload"/>
+    <form action="/api/upload"   method="post" enctype="multipart/form-data">
+        <input  name="myFile"    type="file" class="form-control"/>
+        <input  name="width"     value="{{model.widget.width}}" style="display: none"/>
+        <input  name="userId"    value="{{model.userId}}"   style="display: none"/>
+        <input  name="websiteId" value="{{model.websiteId}}"   style="display: none"/>
+        <input  name="pageId"    value="{{model.pageId}}"   style="display: none"/>
+        <input  name="widgetId"  value="{{model.widget._id}}"   style="display: none"/>
+        <button type="submit"    class="btn btn-block btn-primary">Upload Image</button>
+    </form>
 
     <a class="btn btn-default btn-primary btn-block"
        href="#"
