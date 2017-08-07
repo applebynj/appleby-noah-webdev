@@ -1,3 +1,5 @@
-/**
- * Created by applebynj on 8/7/17.
- */
+var mongoose = require("mongoose");
+var websiteSchema = require("./website.schema.server");
+var websiteModel = mongoose.model("WebsiteModel", websiteSchema);
+
+module.exports = websiteModel;
