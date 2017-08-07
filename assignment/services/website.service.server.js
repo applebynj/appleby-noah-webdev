@@ -1,6 +1,6 @@
 var app = require("../../express.js");
 
-var websiteModel = require("../models/website.model.server.js");
+var websiteModel = require("../models/website.model.server");
 
 var websites = [
     { "_id": "123", "name": "Facebook", "developerId": "456", "description": "Lorem" },
@@ -41,6 +41,7 @@ function createWebsite(req, res) {
 function findAllWebsitesForUser(req, res) {
     /* TODO: check that user exists */
     var userId = req.params.userId;
+
 
     var sites = [];
 
