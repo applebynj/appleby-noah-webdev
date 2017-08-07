@@ -1,5 +1,7 @@
 var app = require("../../express.js");
 
+var websiteModel = require("../models/website.model.server.js");
+
 var websites = [
     { "_id": "123", "name": "Facebook", "developerId": "456", "description": "Lorem" },
     { "_id": "234", "name": "Tweeter", "developerId": "456", "description": "Lorem" },
@@ -21,10 +23,18 @@ function createWebsite(req, res) {
     var userId = req.params.userId;
     var website = req.body;
 
-    website.developerId = userId;
+    websiteModel
+        .createWebsite(userId, website)
+        .then(function(websiteDoc) {
+            res.json(websiteDoc);
+        }, function(err) {
+            res.statusCode(404);  //fix this?
+        });
+
+/*    website.developerId = userId;
     website._id = (new Date()).getTime() +"";
     websites.push(website);
-    res.json(website);
+    res.json(website);*/
 }
 
 
