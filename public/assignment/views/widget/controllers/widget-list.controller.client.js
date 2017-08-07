@@ -35,7 +35,7 @@
         }
 
         function getWidgetIncludeUrl(widgetType) {
-            return 'views/widget/templates/widget-' + widgetType.toLowerCase() + '.component.client.html';
+            return 'views/widget/templates/components/widget-' + widgetType.toLowerCase() + '.component.client.html';
         }
     }
 })();
