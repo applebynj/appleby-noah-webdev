@@ -18,14 +18,13 @@
                 .findUserByUsername(user.username)
                 .then(function(res) {
                     var _user = res.data;
-                    if(_user === '0') {
+                    if(!_user) {
                         if(user.password === user.password2) {
                             return UserService.createUser(user)
                         } else {
                             model.error = "Passwords do not match";
                         }
-                    }
-                    else {
+                    } else {
                         model.error = "User already exists";
                     }
                 })
