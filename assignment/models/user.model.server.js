@@ -4,13 +4,17 @@ var db = require("./database");
 var userModel = mongoose.model("UserModel", userSchema);
 
 //todo all other usermodel things
-//createUser
+userModel.createUser = createUser;
 //findUserById
 //updateUser
 //findUserByCredentials
 userModel.addWebsite = addWebsite;
 
 module.exports = userModel;
+
+function createUser(user) {
+    return userModel.create(user);
+}
 
 function addWebsite(developerId, websiteId) {
     userModel

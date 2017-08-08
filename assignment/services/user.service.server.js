@@ -1,5 +1,7 @@
 var app = require("../../express");
 
+var userModel = require("../models/user.model.server");
+
 var users = [
     {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder", email:"alice@wonder.com"},
     {_id: "234", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley", email:"bob@marley.com"},
@@ -16,9 +18,19 @@ app.delete("/api/user/:userId", deleteUser)
 function createUser(req, res) {
     /* TODO: further validation */
     var user = req.body;
-    user._id = (new Date()).getTime() +"";
+
+    userModel
+        .createUser(user)
+        .then(function(userDoc) {
+            res.json(userDoc);
+        }, function(err) {
+            console.log("here, why");
+            res.statusCode(404);  //fix this?
+        });
+
+/*    user._id = (new Date()).getTime() +"";
     users.push(user);
-    res.send(user);
+    res.send(user);*/
 }
 
 function findUser(req, res) {
