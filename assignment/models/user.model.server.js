@@ -39,9 +39,9 @@ function deleteUser(userId) {
     return userModel.remove({_id: userId});
 }
 
-function addWebsite(developerId, websiteId) {
+function addWebsite(userId, websiteId) {
     userModel
-        .findById(developerId)
+        .findById(userId)
         .then(function(user){
             user.websites.push(websiteId);
             return user.save();

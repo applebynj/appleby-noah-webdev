@@ -103,12 +103,9 @@ function updateUser(req, res) {
     var userId = req.params.userId;
     var user = req.body;
 
-    console.log('here');
-
     userModel
         .updateUser(userId, user)
         .then(function(status) {
-            console.log(status);
             res.json(status);
         }, function(err) {
             res.statusCode(404).send(err);
