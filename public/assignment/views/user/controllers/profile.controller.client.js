@@ -23,9 +23,8 @@
         function updateUser(user) {
             UserService
                 .updateUser(user._id, user)
-                .then(function(response) {
-                    model.user = response.data;
-                    $location.url("#!/assignment/user/" + model.user._id);
+                .then(function() {
+                    $location.url("user/" + user._id);
                 })
         }
 

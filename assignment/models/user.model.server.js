@@ -5,15 +5,36 @@ var userModel = mongoose.model("UserModel", userSchema);
 
 //todo all other usermodel things
 userModel.createUser = createUser;
-//findUserById
-//updateUser
-//findUserByCredentials
+userModel.findUserById = findUserById;
+userModel.findUserByUsername = findUserByUsername;
+userModel.findUserByCredentials = findUserByCredentials;
+userModel.updateUser = updateUser;
+//userModel.deleteUser = deleteUser;
 userModel.addWebsite = addWebsite;
 
 module.exports = userModel;
 
 function createUser(user) {
     return userModel.create(user);
+}
+
+function findUserById(userId) {
+    return userModel.findById(userId);
+}
+
+function updateUser(userId, user) {
+    console.log(userId);
+    console.log(user);
+    return userModel.update({_id : userId},
+        {$set: user});
+}
+
+function findUserByUsername(username) {
+    return userModel.find({username: username});
+}
+
+function findUserByCredentials(username, password) {
+    return userModel.find({username: username, password: password});
 }
 
 function addWebsite(developerId, websiteId) {
