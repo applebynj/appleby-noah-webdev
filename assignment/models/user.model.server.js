@@ -23,8 +23,6 @@ function findUserById(userId) {
 }
 
 function updateUser(userId, user) {
-    console.log(userId);
-    console.log(user);
     return userModel.update({_id : userId},
         {$set: user});
 }
@@ -34,7 +32,7 @@ function findUserByUsername(username) {
 }
 
 function findUserByCredentials(username, password) {
-    return userModel.find({username: username, password: password});
+    return userModel.findOne({username: username, password: password});
 }
 
 function addWebsite(developerId, websiteId) {

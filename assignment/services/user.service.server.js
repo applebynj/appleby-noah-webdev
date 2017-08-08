@@ -75,8 +75,9 @@ function findUser(req, res) {
                 return;
             }
         }*/
+    }  else {
+        res.statusCode(404);
     }
-    res.send("0");
 }
 
 function findUserById(req, res) {
