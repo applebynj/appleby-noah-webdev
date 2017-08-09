@@ -1,42 +1,42 @@
 var mongoose = require("mongoose");
-var websiteSchema = require("./website.schema.server");
-var websiteModel = mongoose.model("WebsiteModel", websiteSchema);
-var userModel = require("./user.model.server");
+var pageSchema = require("./page.schema.server");
+var pageModel = mongoose.model("PageModel", pageSchema);
+var websiteModel = require("./website.model.server");
 
-websiteModel.createWebsite = createWebsite;
-websiteModel.findWebsitesForUser = findWebsitesForUser;
-websiteModel.findWebsiteById = findWebsiteById;
-websiteModel.updateWebsite = updateWebsite;
-websiteModel.deleteWebsite = deleteWebsite;
+pageModel.createPage = createPage;
+pageModel.findAllPagesForWebsite = findAllPagesForWebsite;
+pageModel.findPageById = findPageById;
+pageModel.updatePage = updatePage;
+pageModel.deletePage = deletePage;
 
 module.exports = websiteModel;
 
-function createWebsite(userId, website) {
-    website._user = userId;
-    var websiteTmp = null;
-    return websiteModel.create(website)
-        .then(function(websiteDoc) {
-            websiteTmp = websiteDoc;
-            return userModel.addWebsite(userId, websiteDoc._id);
+function createPage(websiteId, page) {
+    page._website = websiteId;
+    var pageTmp = null;
+    return pageModel.create(page)
+        .then(function(pageDoc) {
+            pageTmp = pageDoc;
+            return websiteModel.addPage(websiteId, pageDoc._id);
         })
-        .then(function(userDoc) {
-            return websiteTmp; //TODO can this not just go above?
+        .then(function(websiteDoc) {
+            return pageTmp; //TODO can this not just go above?
         });
 }
 
-function findWebsitesForUser(userId) {
-    return websiteModel.find({_user: userId});
+function findAllPagesForWebsite(websiteId) {
+    return pageModel.find({_website: websiteId});
 }
 
-function findWebsiteById(websiteId) {
-    return websiteModel.findById(websiteId);
+function findPageById(pageId) {
+    return pageModel.findById(pageId);
 }
 
-function updateWebsite(websiteId, website) {
-    return websiteModel.update({_id : websiteId},
-        {$set: website});
+function updatePage(pageId, page) {
+    return pageModel.update({_id : pageId},
+        {$set: page});
 }
 
-function deleteWebsite(websiteId) {
-    return websiteModel.remove({_id: websiteId});
+function deletePage(pageId) {
+    return pageModel.remove({_id: pageId});
 }
