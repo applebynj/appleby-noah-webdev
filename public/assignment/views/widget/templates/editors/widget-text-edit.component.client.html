@@ -11,7 +11,7 @@
     <input ng-model="model.widget.formatted"
            type="checkbox"
            id="formatted"/>
-    <div ng-show="model.widget.formatted">
+    <div ng-show="!model.widget.formatted">
         <label for="rows">Rows</label>
         <input ng-model="model.widget.rows"
                class="form-control"
