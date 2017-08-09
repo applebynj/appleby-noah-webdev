@@ -1,12 +1,12 @@
 <div class="container-fluid">
     Text
     <input ng-model="model.widget.text" class="form-control"/>
-    Rows
-    <input ng-model="model.widget.rows" class="form-control" type="number"/>
     Placeholder
     <input ng-model="model.widget.placeholder" class="form-control"/>
     Formatted
     <input ng-model="model.widget.formatted" type="checkbox"/>
+    <input ng-model="model.widget.rows" class="form-control" type="number" ng-show="model.widget.formatted"/>
+    Rows
     <a class="btn btn-default btn-danger btn-block"
        ng-click="model.deleteWidget()"
        role="button">Delete</a>
