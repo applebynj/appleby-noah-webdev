@@ -12,11 +12,9 @@
     <input ng-if="!widget.formatted && (!widget.rows || widget.rows===1)"
            placeholder="{{widget.placeholder}}"
            class="form-control"
-            value="{{widget.text}}"/>
+           value="{{widget.text}}"/>
     <textarea ng-if="!widget.formatted && (widget.rows > 1)"
               rows="{{widget.rows}}"
               placeholder="{{widget.placeholder}}"
-              class="form-control">
-        {{widget.text}}
-    </textarea>
+              class="form-control">{{widget.text}}</textarea>
 </div>
