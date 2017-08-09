@@ -11,7 +11,7 @@ pageModel.updatePage = updatePage;
 pageModel.deletePage = deletePage;
 pageModel.addWidget = addWidget;
 
-module.exports = websiteModel;
+module.exports = pageModel;
 
 function createPage(websiteId, page) {
     page._website = websiteId;
