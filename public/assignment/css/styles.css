@@ -5,7 +5,7 @@ body {
     padding: 60px 0px;
 }
 
-input, textarea, .dropdown {
+input, textarea, .dropdown, .text-angular-input {
     margin-bottom: 5px;
 }
 
@@ -137,4 +137,12 @@ a:hover {
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+/* TextAngular */
+.ta-toolbar {
+    background-color: #F0F0F0;
+    padding: 10px 10px 5px;
+    margin-left: 0px; /* Override bootstrap */
+    border: 1px solid #EEE;
 }
