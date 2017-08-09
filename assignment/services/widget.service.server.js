@@ -5,6 +5,8 @@ var  upload  =  multer ({
     dest: __dirname+'/../../public/uploads'
 });
 
+var widgetModel = require("../models/widget.model.server");
+
 var widgets = [
     { "_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO"},
     { "_id": "234", "widgetType": "HEADING", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
@@ -29,49 +31,82 @@ function createWidget(req, res) {
     var pageId = req.params.pageId;
     var widget = req.body;
 
-    widget.pageId = pageId;
+    widgetModel
+        .createWidget(pageId, widget)
+        .then(function(widget) {
+            res.json(widget);
+        }, function(err) {
+            res.statusCode(404).send(err);
+        });
+
+/*    widget.pageId = pageId;
     widget._id = (new Date()).getTime() +"";
     widgets.push(widget);
-    res.json(widget);
+    res.json(widget);*/
 }
 
 function findAllWidgetsForPage(req, res) {
     var pageId = req.params.pageId;
 
-    var returnWidgets = [];
+    widgetModel
+        .findAllWidgetsForPage(pageId)
+        .then(function(widgets) {
+            res.json(widgets);
+        }, function(err) {
+            res.statusCode(404).send(err);
+        });
+
+/*    var returnWidgets = [];
 
     for(var w in widgets) {
         if(widgets[w].pageId === pageId) {
             returnWidgets.push(widgets[w]);
         }
     }
-    res.json(returnWidgets);
+    res.json(returnWidgets);*/
 }
 
 function findWidgetById(req, res) {
     var widgetId = req.params.widgetId;
 
-    for(var w in widgets) {
+    widgetModel
+        .findWidgetById(widgetId)
+        .then(function(widget) {
+            res.json(widget);
+        }, function(err) {
+            res.statusCode(404).send(err);
+        });
+
+
+/*    for(var w in widgets) {
         if(widgets[w]._id === widgetId) {
             res.json(widgets[w]);
             return;
         }
     }
-    res.sendStatus(404);
+    res.sendStatus(404);*/
 }
 
 function updateWidget(req, res) {
     var widgetId = req.params.widgetId;
     var widget = req.body;
 
-    for(var w in widgets) {
+    widgetModel
+        .updateWidget(widgetId, widget)
+        .then(function(status) {
+            res.json(status);
+        }, function(err) {
+            res.statusCode(404).send(err);
+        });
+
+/*    for(var w in widgets) {
         if(widgets[w]._id === widgetId) {
             widgets[w] = widget;
             res.json(widgets[w]);
             return;
         }
     }
-    res.send("0");
+    res.send("0");*/
 }
 
 function updateWidgetOrder(req, res) {
@@ -115,14 +150,22 @@ function updateWidgetOrder(req, res) {
 function deleteWidget(req, res) {
     var widgetId = req.params.widgetId;
 
-    for(var w in widgets) {
+    widgetModel
+        .deleteWidget(widgetId)
+        .then(function(status) {
+            res.json(status);
+        }, function(err) {
+            res.statusCode(404).send(err);
+        });
+
+/*    for(var w in widgets) {
         if(widgets[w]._id === widgetId) {
             widgets.splice(w, 1);
             res.sendStatus(204);
             return;
         }
     }
-    res.sendStatus(404);
+    res.sendStatus(404);*/
 }
 
 function  uploadImage (req, res) {
