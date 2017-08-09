@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 var widgetSchema = mongoose.Schema({
     _page: {type: mongoose.Schema.Types.ObjectId, ref:"PageModel"},
-    type: {type: String, enum:['HEADING', 'IMAGE', 'YOUTUBE', 'HTML', 'INPUT']},
+    widgetType: {type: String, enum:['HEADING', 'IMAGE', 'YOUTUBE', 'HTML', 'TEXT']},
     name: String,
     text: String,
     placeholder: String,
@@ -16,5 +16,5 @@ var widgetSchema = mongoose.Schema({
     deletable: Boolean,
     formatted: Boolean,
     dateCreated: {type: Date, default: Date.now}
-}, {collection: "page"});
+}, {collection: "widget"});
 module.exports = widgetSchema;
