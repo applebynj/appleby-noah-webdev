@@ -28,7 +28,7 @@ function createWebsite(req, res) {
         .then(function(website) {
             res.json(website);
         }, function(err) {
-            res.statusCode(404);  //fix this?
+            res.statusCode(404).send(err);
         });
 
 /*    website.developerId = userId;
@@ -47,7 +47,7 @@ function findAllWebsitesForUser(req, res) {
         .then(function(websites) {
             res.json(websites);
         }, function(err) {
-            res.statusCode(404);
+            res.statusCode(404).send(err);
         });
 
 /*    var sites = [];
@@ -68,7 +68,7 @@ function findWebsiteById(req, res) {
         .then(function(website) {
             res.json(website);
         }, function(err) {
-            res.statusCode(404);
+            res.statusCode(404).send(err);
         });
 
 /*    for(var w in websites) {
@@ -89,7 +89,7 @@ function updateWebsite(req, res) {
         .then(function(status) {
             res.json(status);
         }, function(err) {
-            res.statusCode(404);
+            res.statusCode(404).send(err);
         });
 
 /*    for(var w in websites) {
@@ -110,7 +110,7 @@ function deleteWebsite(req, res) {
         .then(function(status) {
             res.json(status);
         }, function(err) {
-            res.statusCode(404);
+            res.statusCode(404).send(err);
         });
 
 /*    for(var w in websites) {
