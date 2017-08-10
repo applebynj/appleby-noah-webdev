@@ -22,8 +22,8 @@ function createWebsite(userId, website) {
             websiteTmp = websiteDoc;
             return userModel.addWebsite(userId, websiteDoc._id);
         })
-        .then(function(userDoc) {
-            return websiteTmp; //TODO can this not just go above?
+        .then(function() {
+            return websiteTmp;
         });
 }
 

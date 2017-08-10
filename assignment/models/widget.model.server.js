@@ -19,10 +19,10 @@ function createWidget(pageId, widget) {
     return widgetModel.create(widget)
         .then(function(widgetDoc) {
             widgetTmp = widgetDoc;
-            return pageModel.addWidget(pageId, widgetDoc._id);  //TODO
+            return pageModel.addWidget(pageId, widgetDoc._id);
         })
-        .then(function(pageDoc) {
-            return widgetTmp; //TODO can this not just go above?
+        .then(function() {
+            return widgetTmp;
         });
 }
 

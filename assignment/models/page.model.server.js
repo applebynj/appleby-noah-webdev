@@ -22,8 +22,8 @@ function createPage(websiteId, page) {
             pageTmp = pageDoc;
             return websiteModel.addPage(websiteId, pageDoc._id);
         })
-        .then(function(websiteDoc) {
-            return pageTmp; //TODO can this not just go above?
+        .then(function() {
+            return pageTmp;
         });
 }
 
