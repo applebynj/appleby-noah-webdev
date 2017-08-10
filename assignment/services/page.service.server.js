@@ -12,7 +12,7 @@ app.post("/api/website/:websiteId/page", createPage);
 app.get("/api/website/:websiteId/page", findAllPagesForWebsite);
 app.get("/api/page/:pageId", findPageById);
 app.put("/api/page/:pageId", updatePage);
-app.delete("/api/page/:pageId", deletePage);
+app.delete("/api/website/:websiteId/page/:pageId", deletePage);
 
 
 function createPage(req, res) {
@@ -96,10 +96,11 @@ function updatePage(req, res) {
 }
 
 function deletePage(req, res) {
+    var websiteId = req.params.websiteId;
     var pageId = req.params.pageId;
 
     pageModel
-        .deletePage(pageId)
+        .deletePage(websiteId, pageId)
         .then(function(status) {
             res.json(status);
         }, function(err) {

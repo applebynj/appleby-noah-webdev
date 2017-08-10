@@ -39,8 +39,11 @@ function updatePage(pageId, page) {
         {$set: page});
 }
 
-function deletePage(pageId) {
-    return pageModel.remove({_id: pageId});
+function deletePage(websiteId, pageId) {
+    return pageModel.remove({_id: pageId})
+        .then(function() {
+            return websiteModel.removePage(websiteId, pageId);
+        });
 }
 
 function addWidget(pageId, widgetId) {

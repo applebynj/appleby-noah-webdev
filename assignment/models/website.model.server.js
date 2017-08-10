@@ -10,6 +10,7 @@ websiteModel.findWebsiteById = findWebsiteById;
 websiteModel.updateWebsite = updateWebsite;
 websiteModel.deleteWebsite = deleteWebsite;
 websiteModel.addPage = addPage;
+websiteModel.removePage = removePage;
 
 module.exports = websiteModel;
 
@@ -51,6 +52,16 @@ function addPage(websiteId, pageId) {
         .findById(websiteId)
         .then(function(website){
             website.pages.push(pageId);
+            return website.save();
+        });
+}
+
+function removePage(websiteId, pageId) {
+    websiteModel
+        .findById(websiteId)
+        .then(function(website){
+            var index = website.pages.indexOf(pageId);
+            website.pages.splice(index, 1);
             return website.save();
         });
 }
