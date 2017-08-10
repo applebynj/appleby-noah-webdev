@@ -39,8 +39,11 @@ function updateWebsite(websiteId, website) {
         {$set: website});
 }
 
-function deleteWebsite(websiteId) {
-    return websiteModel.remove({_id: websiteId});
+function deleteWebsite(userId, websiteId) {
+    return websiteModel.remove({_id: websiteId})
+        .then(function() {
+            return userModel.removeWebsite(userId, websiteId);
+        });
 }
 
 function addPage(websiteId, pageId) {
