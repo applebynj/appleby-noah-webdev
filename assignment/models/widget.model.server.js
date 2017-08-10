@@ -21,7 +21,7 @@ function createWidget(pageId, widget) {
             widgetTmp = widgetDoc;
             return pageModel.addWidget(pageId, widgetDoc._id);
         })
-        .then(function(g) {
+        .then(function() {
             return widgetTmp;
         });
 }
