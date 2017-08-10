@@ -8,7 +8,6 @@ app.get("/api/page/:pageId", findPageById);
 app.put("/api/page/:pageId", updatePage);
 app.delete("/api/website/:websiteId/page/:pageId", deletePage);
 
-
 function createPage(req, res) {
     var websiteId = req.params.websiteId;
     var page = req.body;
