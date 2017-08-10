@@ -3,7 +3,7 @@
         .module("WamApp")
         .controller("FlickrController", FlickrController);
 
-    function FlickrController($routeParams, $location, WidgetService) {
+    function FlickrController($routeParams, FlickrService) {
         var model = this;
 
         model.searchPhotos = searchPhotos;
@@ -19,7 +19,15 @@
         init();
 
         function searchPhotos(searchText) {
-            console.log(searchText);
+            FlickrService
+                .searchPhotos(searchText)
+                .then(function(response) {
+                    data = response.data.replace("jsonFlickrApi(","");
+                    data = data.substring(0,data.length - 1);
+                    data = JSON.parse(data);
+                    model.photos = data.photos;
+                });
+
         }
     }
 })();
