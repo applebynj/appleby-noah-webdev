@@ -3,10 +3,11 @@
         .module("WamApp")
         .controller("FlickrController", FlickrController);
 
-    function FlickrController($routeParams, FlickrService) {
+    function FlickrController($routeParams, $location, FlickrService, WidgetService) {
         var model = this;
 
         model.searchPhotos = searchPhotos;
+        model.selectPhoto = selectPhoto;
 
         model.userId = $routeParams["uid"];
         model.websiteId = $routeParams["wid"];
@@ -29,5 +30,19 @@
                 });
 
         }
+
+         function selectPhoto(photo) {
+            var url = "https://farm" + photo.farm + ".staticflickr.com/" + photo.server;
+            url += "/" + photo.id + "_" + photo.secret + "_b.jpg";
+             WidgetService
+                .updateWidget(model.widgetId, {url: url})
+                .then(function() {
+                    $location.url("user/" + model.userId
+                        + "/website/" + model.websiteId
+                        + "/page/" + model.pageId
+                        + "/widget/" + model.widgetId);
+                });
+        }
+
     }
 })();
