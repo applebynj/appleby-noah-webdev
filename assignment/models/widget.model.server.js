@@ -39,6 +39,9 @@ function updateWidget(widgetId, widget) {
         {$set: widget});
 }
 
-function deleteWidget(widgetId) {
-    return widgetModel.remove({_id: widgetId});
+function deleteWidget(pageId, widgetId) {
+    return widgetModel.remove({_id: widgetId})
+        .then(function() {
+            return pageModel.removeWidget(pageId, widgetId);
+        });
 }
