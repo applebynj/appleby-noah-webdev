@@ -49,7 +49,7 @@
 
         function deleteWidget() {
             WidgetService
-                .deleteWidget(model.widgetId)
+                .deleteWidget(model.pageId, model.widgetId)
                 .then(function() {
                     $location.url("user/" + model.userId
                         + "/website/" + model.websiteId

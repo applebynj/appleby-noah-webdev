@@ -18,9 +18,12 @@
                 .findUserByUsername(user.username)
                 .then(function(res) {
                     var _user = res.data;
-                    if(_user === '0') {
+                    if(!_user) {
                         if(user.password === user.password2) {
-                            return UserService.createUser(user)
+                            return UserService.createUser(user).then(function(res) {
+                                _user = res.data;
+                                $location.url("/user/" + _user._id);
+                            });
                         } else {
                             model.error = "Passwords do not match";
                         }
@@ -29,10 +32,6 @@
                         model.error = "User already exists";
                     }
                 })
-                .then(function(res) {
-                    _user = res.data;
-                    $location.url("/user/" + _user._id);
-                });
         }
     }
 })();

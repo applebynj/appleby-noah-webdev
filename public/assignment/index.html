@@ -2,7 +2,7 @@
 <html lang="en" ng-app="WamApp">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
@@ -11,6 +11,13 @@
 
     <script src="../vendor/angular/angular.js"></script>
     <script src="../vendor/angular/angular-route.js"></script>
+
+    <link rel="stylesheet" href="../vendor/font-awesome/css/font-awesome.min.css">
+
+    <link rel='stylesheet' href='../vendor/textAngular/textAngular.css'>
+    <script src='../vendor/textAngular/textAngular-rangy.min.js'></script>
+    <script src='../vendor/textAngular/textAngular-sanitize.min.js'></script>
+    <script src='../vendor/textAngular/textAngular.min.js'></script>
 
     <script src="directives/wbdv-sortable.js"></script>
     <script src="app.js"></script>
@@ -35,6 +42,9 @@
     <script src="views/widget/controllers/widget-edit.controller.client.js"></script>
     <script src="views/widget/controllers/widget-new.controller.client.js"></script>
     <script src="services/widget.service.client.js"></script>
+
+    <script src="views/widget/controllers/widget-flickr-search.controller.client.js"></script>
+    <script src="services/flickr.service.client.js"></script>
 
     <!-- Bootstrap core CSS -->
     <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
