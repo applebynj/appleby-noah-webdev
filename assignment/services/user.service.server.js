@@ -2,13 +2,6 @@ var app = require("../../express");
 
 var userModel = require("../models/user.model.server");
 
-var users = [
-    {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder", email:"alice@wonder.com"},
-    {_id: "234", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley", email:"bob@marley.com"},
-    {_id: "345", username: "charly", password: "charly", firstName: "Charly", lastName: "Garcia", email:"charly@garcia.com"},
-    {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi", email: "jose@annunzi.com"}
-];
-
 app.post("/api/user", createUser);
 app.get("/api/user", findUser); /* covers findUserByUserName and findUserByCredentials based on request body */
 app.get("/api/user/:userId", findUserById);
@@ -26,10 +19,6 @@ function createUser(req, res) {
         }, function(err) {
             res.statusCode(404).send(err);
         });
-
-/*    user._id = (new Date()).getTime() +"";
-    users.push(user);
-    res.send(user);*/
 }
 
 function findUser(req, res) {
@@ -47,15 +36,6 @@ function findUser(req, res) {
                 res.statusCode(404).send(err);
             });
 
-
-       /* for (var u in users) {
-            var _user = users[u];
-            if (username === _user.username &&
-                password === _user.password) {
-                res.send(_user);
-                return;
-            }
-        }*/
     } /* findUserByUserName */
     else if(username) {
 
@@ -67,14 +47,6 @@ function findUser(req, res) {
                 res.statusCode(404).send(err);
             });
 
-        /*for (var u in users) {
-            var _user = users[u];
-            if (username === _user.username) {
-                res.send(_user);
-                console.log(_user);
-                return;
-            }
-        }*/
     }  else {
         res.statusCode(404);
     }
@@ -90,13 +62,6 @@ function findUserById(req, res) {
         }, function(err) {
             res.statusCode(404).send(err);
         });
-
-    /*    for(var u in users) {
-        if(users[u]._id === req.params.userId) {
-            res.send(users[u]);
-        }
-    }
-    res.sendStatus(404);*/
 }
 
 function updateUser(req, res) {
@@ -110,16 +75,6 @@ function updateUser(req, res) {
         }, function(err) {
             res.statusCode(404).send(err);
         })
-
-/*    /!* TODO: finish this logic *!/
-    for(var u in users) {
-        if(users[u]._id === userId) {
-            users[u] = user;
-            res.send(user);
-            return;
-        }
-    }
-    res.sendStatus(404);*/
 }
 
 function deleteUser(req, res) {
@@ -132,24 +87,4 @@ function deleteUser(req, res) {
         }, function(err) {
             res.statusCode(404).send(err);
         })
-
-/*    for(var u in users) {
-        if(users[u]._id === userId) {
-            users.splice(u, 1);
-            res.sendStatus(204);
-            return;
-        }
-    }
-    res.sendStatus(404).send(err);*/
 }
-
-
-/*
- Not needed for assignment:
-
- app.get("/api/users", getAllUsers);
-
- function getAllUsers(req, res) {
- res.send(users);
- }
- */
