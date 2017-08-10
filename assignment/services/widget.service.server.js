@@ -107,9 +107,12 @@ function  uploadImage (req, res) {
     var size = myFile.size;
     var mimetype = myFile.mimetype;
 
-    widget = findWidgetById(widgetId);
-    widget.url = '/uploads/'+filename;
+    var widget = {url : '/uploads/'+filename};
 
-    var callbackUrl   = "/assignment/#!/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget";
-    res.redirect(callbackUrl);
+    widgetModel.updateWidget(widgetId, widget)
+        .then(function() {
+            var callbackUrl   = "/assignment/#!/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget";
+            res.redirect(callbackUrl);
+        });
 }
+
