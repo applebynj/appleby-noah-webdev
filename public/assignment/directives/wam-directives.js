@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module("wbdvDirectives", [])
+        .module("wamDirectives", [])
         .directive("wbdvSortable", wbdvSortableTag);
 
     function wbdvSortableTag($http, $routeParams) {
