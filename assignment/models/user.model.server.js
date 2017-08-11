@@ -16,6 +16,7 @@ userModel.removeWebsite = removeWebsite;
 module.exports = userModel;
 
 function createUser(user) {
+    user.username = user.username.toLowerCase();
     return userModel.create(user);
 }
 
@@ -29,11 +30,11 @@ function updateUser(userId, user) {
 }
 
 function findUserByUsername(username) {
-    return userModel.findOne({username: username});
+    return userModel.findOne({username: username.toLowerCase()});
 }
 
 function findUserByCredentials(username, password) {
-    return userModel.findOne({username: username, password: password});
+    return userModel.findOne({username: username.toLowerCase(), password: password});
 }
 
 function deleteUser(userId) {
