@@ -56,6 +56,10 @@ function updateWidget(req, res) {
     var widgetId = req.params.widgetId;
     var widget = req.body;
 
+    if(req.body.width) {
+        req.body.width += "%";
+    }
+
     widgetModel
         .updateWidget(widgetId, widget)
         .then(function(status) {
@@ -95,6 +99,7 @@ function deleteWidget(req, res) {
 function  uploadImage (req, res) {
     var widgetId = req.body.widgetId;
     var width = req.body.width;
+    width = width + '%';
     var myFile = req.file;
 
     if(widgetId && myFile) {
