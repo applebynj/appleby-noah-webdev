@@ -3,13 +3,18 @@
         .module("WbdvProject")
         .controller("PlaceController", PlaceController)
 
-    function PlaceController(GooglePlaceService) {
+    function PlaceController($routeParams, GooglePlaceService) {
         var model = this;
 
         model.placeId = $routeParams["pid"];
 
         function init() {
-            model.place = GooglePlaceService.findPlaceById(model.placeId);
+            GooglePlaceService
+                .findPlaceById(model.placeId)
+                .then(function(response) {
+                    console.log(response.data.result);
+                    model.place = response.data.result;
+                })
         }
         init();
     }
