@@ -97,7 +97,7 @@ function  uploadImage (req, res) {
     var width = req.body.width;
     var myFile = req.file;
 
-    if(widgetId && width && myFile) {
+    if(widgetId && myFile) {
         var userId = req.body.userId;
         var websiteId = req.body.websiteId;
         var pageId = req.body.pageId;
