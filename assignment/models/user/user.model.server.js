@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 var userSchema = require("./user.schema.server");
-var db = require("./database");
+var db = require("../models.server");
 
 var userModel = mongoose.model("UserModel", userSchema);
 
@@ -24,17 +24,17 @@ function findUserById(userId) {
     return userModel.findById(userId);
 }
 
-function updateUser(userId, user) {
-    return userModel.update({_id : userId},
-        {$set: user});
-}
-
 function findUserByUsername(username) {
     return userModel.findOne({username: username.toLowerCase()});
 }
 
 function findUserByCredentials(username, password) {
     return userModel.findOne({username: username.toLowerCase(), password: password});
+}
+
+function updateUser(userId, user) {
+    return userModel.update({_id : userId},
+        {$set: user});
 }
 
 function deleteUser(userId) {

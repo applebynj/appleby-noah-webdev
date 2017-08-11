@@ -1,10 +1,10 @@
 var mongoose = require("mongoose");
 var websiteSchema = require("./website.schema.server");
-var userModel = require("./user.model.server");
+var userModel = require("../user/user.model.server");
 
 var websiteModel = mongoose.model("WebsiteModel", websiteSchema);
 
-websiteModel.createWebsite = createWebsite;
+websiteModel.createWebsiteForUser = createWebsiteForUser;
 websiteModel.findAllWebsitesForUser = findAllWebsitesForUser;
 websiteModel.findWebsiteById = findWebsiteById;
 websiteModel.updateWebsite = updateWebsite;
@@ -14,7 +14,7 @@ websiteModel.removePage = removePage;
 
 module.exports = websiteModel;
 
-function createWebsite(userId, website) {
+function createWebsiteForUser(userId, website) {
     website._user = userId;
     var websiteTmp = null;
     return websiteModel.create(website)

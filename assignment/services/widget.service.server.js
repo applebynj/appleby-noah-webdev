@@ -5,7 +5,7 @@ var  upload  =  multer ({
     dest: __dirname+'/../../public/uploads'
 });
 
-var widgetModel = require("../models/widget.model.server");
+var widgetModel = require("../models/widget/widget.model.server");
 
 app.post("/api/page/:pageId/widget", createWidget);
 app.post ("/api/upload",  upload.single('myFile'), uploadImage);

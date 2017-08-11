@@ -1,6 +1,6 @@
 var app = require("../../express");
 
-var userModel = require("../models/user.model.server");
+var userModel = require("../models/user/user.model.server");
 
 app.post("/api/user", createUser);
 app.get("/api/user", findUser); /* covers findUserByUserName and findUserByCredentials based on request body */

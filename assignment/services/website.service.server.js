@@ -1,6 +1,6 @@
 var app = require("../../express.js");
 
-var websiteModel = require("../models/website.model.server");
+var websiteModel = require("../models/website/website.model.server");
 
 app.post("/api/user/:userId/website", createWebsite);
 app.get("/api/user/:userId/website", findAllWebsitesForUser);
@@ -14,7 +14,7 @@ function createWebsite(req, res) {
     var website = req.body;
 
     websiteModel
-        .createWebsite(userId, website)
+        .createWebsiteForUser(userId, website)
         .then(function(website) {
             res.json(website);
         }, function(err) {
