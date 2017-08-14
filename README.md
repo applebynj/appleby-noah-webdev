@@ -6,6 +6,6 @@ I'm an undergraduate Computer Science and Design major at Northeastern Universit
 
 ## Links to Heroku Hosting:
 1. Main Home Page: https://appleby-noah-webdev.herokuapp.com/
-2. Project Home Page: https://appleby-noah-webdev.herokuapp.com/project/
+2. Project Home Page: https://appleby-noah-webdev-project.herokuapp.com/
 3. Assignment Home Page: https://appleby-noah-webdev.herokuapp.com/assignment/
 
