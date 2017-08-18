@@ -3,35 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <title>Web Dev Course Home Page</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Material Design Files -->
+    <link href="vendor/bootstrap-material-design/css/bootstrap-material-design.min.css" rel="stylesheet"/>
+    <link href="vendor/bootstrap-material-design/css/ripples.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    <link href="style.css" rel="stylesheet"/>
+
 </head>
-<body>
-    <h1>Web Dev Course Home Page</h1>
+<div>
 
-    <p>
-        This is your website's home page. Your home page should have a picture of yourself, link to your assignments,
-        link to your final project implementation on Heroku, link to your GitHub,
-        link to a 5 minute video demoing your project. Your home page should look
-        spectacular. You should feel proud to share your homepage with your potential employer.
-        I should feel proud to share your homepage with my colleagues.
-    </p>
+    <div class="container-fluid">
 
-    <h2>Required links</h2>
-    <ul>
-        <li>
-            <a href="https://appleby-noah-webdev-project.herokuapp.com/">Project</a>
-        </li>
-        <li>
-            <a href="assignment/">Assignment</a>
-        </li>
-        <li>
-            <a href="test/index.html">Test MongoDB</a>
-        </li>
-        <li>
-            <a href="https://github.com/applebynj/appleby-noah-webdev">Your public repository at GitHub.com</a>
-        </li>
-        <li>
-            <a href="/lectures">Lectures</a>
-        </li>
-    </ul>
+        <div class="row header">
+            <div class="col-md-offset-2 col-sm-offset-1 hidden-xs">
+                <h2>Web Development Course Website</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-2 col-sm-offset-1 col-sm-10">
+                <div class="panel bio">
+                    <div class="panel-body">
+                        <div class="col-xs-4">
+                            <img src="noah.png">
+                        </div>
+                        <div class="col-xs-8">
+                            Hi! I'm an undergraduate Computer Science and Design major at Northeastern University, and am currently also working part-time as a full-stack developer at PowerAdvocate. I have past experience as a front-end developer working with a client through Scout, a student run organization through Northeastern's College of Arts, Media Design.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 col-sm-5 col-md-offset-2 col-sm-offset-1">
+                <div class="panel linkPanel">
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <div class="row-action-primary">
+                                <a href="/assignment">
+                                    <i class="material-icons">assignment_turned_in</i>
+                                </a>
+                            </div>
+                            <div class="row-content">
+                                    <h4 class="list-group-item-heading">Assignment</h4>
+                                <p class="list-group-item-text">A web application on which you can build basic websites. Completed over the length of the course, as we learned key concepts of web development.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-5">
+                <div class="panel linkPanel">
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <div class="row-action-primary">
+                                <a href="https://appleby-noah-webdev-project.herokuapp.com">
+                                    <i class="material-icons">flag</i>
+
+                                </a>
+                            </div>
+                            <div class="row-content">
+                                <h4 class="list-group-item-heading">Project</h4>
+
+                                <p class="list-group-item-text">An ongoing final project for this course, this is a social networking site that allows you to discover and share new places.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-5 col-md-offset-2 col-sm-offset-1">
+                <div class="panel linkPanel">
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <div class="row-action-primary">
+                                <a href="https://github.com/applebynj/appleby-noah-webdev">
+                                    <i class="material-icons">code</i>
+                                </a>
+                            </div>
+                            <div class="row-content">
+                                <h4 class="list-group-item-heading">Assignment Repo</h4>
+                                <p class="list-group-item-text">Demonstrates an understanding of the MEAN stack that we used in this course. See the assignment project grow over time as new concepts were introducted.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-5 ">
+                <div class="panel linkPanel">
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <div class="row-action-primary">
+                                <a href="https://github.com/applebynj/appleby-noah-webdev-project">
+                                    <i class="material-icons">code</i>
+                                </a>
+                            </div>
+                            <div class="row-content">
+                                <h4 class="list-group-item-heading">Project Repo</h4>
+                                <p class="list-group-item-text">See the process behind picking an API, creating experiments and proof of concepts, before entering full development.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-5 col-md-offset-5 col-sm-offset-6">
+                <div class="panel linkPanel">
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <div class="row-action-primary">
+                                <a href="#">
+                                    <i class="material-icons">ondemand_video</i>
+                                </a>
+                            </div>
+                            <div class="row-content">
+                                <h4 class="list-group-item-heading">Project Video</h4>
+                                <p class="list-group-item-text">(Coming soon) A demonstration of my project, and an explanation of what features I'd like to add next.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="vendor/bootstrap-material-design/js/ripples.min.js"></script>
+    <script src="vendor/bootstrap-material-design/js/material.min.js"></script>
+
 </body>
 </html>

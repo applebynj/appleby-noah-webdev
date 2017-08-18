@@ -1,0 +1,31 @@
+.panel img {
+    width: 100%;
+    max-width: 200px;
+}
+
+.linkPanel {
+    padding: 10px;
+    min-height: 150px;
+}
+
+
+.row-action-primary {
+    vertical-align: top;
+    padding-top: 10px;
+}
+
+a, a:focus, a:hover {
+    color: transparent;
+}
+
+.header {
+    height: 200px;
+    background-color: #2e6da4;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.header div {
+    margin-top:140px;
+    z-index: -1;
+}
